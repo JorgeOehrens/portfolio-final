@@ -1,12 +1,12 @@
 'use client'
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/app/components/ui/card"
+import { Badge } from "@/app/components/ui/badge"
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Button } from "@/components/ui/button"
+import { Button } from "@/app/components/ui/button"
 
 export type BlogPost = {
   id: number

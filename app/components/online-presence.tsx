@@ -1,6 +1,6 @@
 'use client'
 
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/app/components/ui/card"
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
 
@@ -29,7 +29,7 @@ export default function OnlinePresence() {
             className="flex items-center gap-3 bg-secondary rounded-lg p-3 hover:bg-secondary/80 transition-colors"
           >
             <span className="text-xl">📸</span>
-            <span className="text-sm font-medium">@webitae</span>
+            <span className="text-sm font-medium">@/appwebitae</span>
           </a>
           <a 
             href="https://github.com/JorgeOehrens" 

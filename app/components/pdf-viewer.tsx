@@ -1,18 +1,14 @@
 "use client"
 
 import { useState } from 'react'
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/app/components/ui/card"
+import { Button } from "@/app/components/ui/button"
 import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react'
 
 export default function PDFViewer() {
   const [currentPage, setCurrentPage] = useState(1)
   const [scale, setScale] = useState(1)
-  const [numPages, setNumPages] = useState(null)
-
-  const onDocumentLoadSuccess = ({ numPages }) => {
-    setNumPages(numPages)
-  }
+  const [numPages, ] = useState(null)
 
   return (
     <Card className="bg-card text-card-foreground">

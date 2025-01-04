@@ -1,11 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Card, CardContent } from "@/app/components/ui/card"
+import { Badge } from "@/app/components/ui/badge"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/app/components/ui/dialog"
 import { useLanguage } from '../contexts/LanguageContext'
-import { translations } from '../utils/translations'
 import Image from 'next/image'
 
 type BlogPost = {
@@ -50,7 +49,6 @@ const blogPosts: BlogPost[] = [
 
 export default function Blog() {
   const { language } = useLanguage()
-  const t = translations[language]
   const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null)
 
   return (

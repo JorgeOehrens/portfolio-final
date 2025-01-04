@@ -1,11 +1,10 @@
 'use client'
 
 import { useState } from 'react'
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Card, CardContent } from "@/app/components/ui/card"
+import { Badge } from "@/app/components/ui/badge"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/app/components/ui/dialog"
 import { useLanguage } from '../contexts/LanguageContext'
-import { translations } from '../utils/translations'
 
 type LinkedInPost = {
   id: number
@@ -45,7 +44,6 @@ const linkedInPosts: LinkedInPost[] = [
 
 export default function LinkedInActivity() {
   const { language } = useLanguage()
-  const t = translations[language]
   const [selectedPost, setSelectedPost] = useState<LinkedInPost | null>(null)
 
   return (

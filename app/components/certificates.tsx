@@ -1,6 +1,6 @@
 'use client'
 
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent } from "@/app/components/ui/card"
 import { Award } from 'lucide-react'
 import Image from 'next/image'
 

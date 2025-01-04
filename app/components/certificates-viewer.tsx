@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from 'react'
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/app/components/ui/card"
+import { Button } from "@/app/components/ui/button"
 import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react'
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/app/components/ui/badge"
 
 const certificates = [
   {

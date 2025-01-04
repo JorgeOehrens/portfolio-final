@@ -1,5 +1,5 @@
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/app/components/ui/card"
+import { Badge } from "@/app/components/ui/badge"
 import { MapPin, Globe2, Building2, GraduationCap } from 'lucide-react'
 import Image from 'next/image'
 

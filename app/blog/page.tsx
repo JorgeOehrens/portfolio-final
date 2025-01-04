@@ -5,8 +5,8 @@ import { translations } from '../utils/translations'
 import { blogPosts, BlogPost } from '../components/blog-preview'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Badge } from "@/app/components/ui/badge"
+import { Button } from "@/app/components/ui/button"
 import { ArrowLeft } from 'lucide-react'
 
 export default function BlogPage() {

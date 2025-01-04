@@ -2,10 +2,10 @@
 
 import { useLanguage } from '../../contexts/LanguageContext'
 import { translations } from '../../utils/translations'
-import { blogPosts, BlogPost } from '../../components/blog-preview'
+import { blogPosts } from '@/app/components/blog-preview'
 import Image from 'next/image'
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Badge } from "@/app/components/ui/badge"
+import { Button } from "@/app/components/ui/button"
 import { ArrowLeft, Calendar, Clock } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'

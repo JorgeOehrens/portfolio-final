@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Download } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import { Button } from "@/app/components/ui/button"
 import Stats from './components/stats'
 import Profile from './components/profile'
 import ProjectGrid from './components/project-grid'
@@ -18,7 +18,7 @@ import { motion } from 'framer-motion'
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext'
 import { translations } from './utils/translations'
 import LinkedInActivity from './components/linkedin-activity'
-import BlogPreview from './components/blog-preview'
+import BlogPreview from '@/app/components/blog-preview'
 
 function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage()

@@ -1,101 +1,182 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import { useEffect, useState } from 'react'
+import { Download } from 'lucide-react'
+import { Button } from "@/components/ui/button"
+import Stats from './components/stats'
+import Profile from './components/profile'
+import ProjectGrid from './components/project-grid'
+import HackathonGrid from './components/hackathon-grid'
+import WorkProcess from './components/work-process'
+import SocialLinks from './components/social-links'
+import OnlinePresence from './components/online-presence'
+import ContactSection from './components/contact-section'
+import { ThemeToggle } from './components/theme-toggle'
+import CertificatesViewer from './components/certificates-viewer'
+import DegreesViewer from './components/degrees-viewer'
+import { motion } from 'framer-motion'
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext'
+import { translations } from './utils/translations'
+import LinkedInActivity from './components/linkedin-activity'
+import BlogPreview from './components/blog-preview'
+
+function LanguageSwitcher() {
+  const { language, setLanguage } = useLanguage()
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+    <div className="flex space-x-2">
+      <Button
+        variant="outline"
+        size="lg"
+        onClick={() => setLanguage('es')}
+        aria-label="Switch to Spanish"
+        className={`text-2xl ${language === 'es' ? 'bg-secondary' : ''}`}
+      >
+        🇨🇱
+      </Button>
+      <Button
+        variant="outline"
+        size="lg"
+        onClick={() => setLanguage('en')}
+        aria-label="Switch to English"
+        className={`text-2xl ${language === 'en' ? 'bg-secondary' : ''}`}
+      >
+        🇺🇸
+      </Button>
     </div>
-  );
+  )
 }
+
+function PortfolioContent() {
+  const [isLoading, setIsLoading] = useState(true)
+  const { language } = useLanguage()
+  const t = translations[language]
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  }
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    )
+  }
+
+  return (
+    <motion.div
+      className="min-h-screen bg-background text-foreground p-4 sm:p-6 font-jakarta"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <div className="max-w-7xl mx-auto space-y-6">
+        <motion.div className="flex justify-between items-center" variants={itemVariants}>
+          <LanguageSwitcher />
+          <ThemeToggle />
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <Stats />
+        </motion.div>
+
+        <motion.div className="grid lg:grid-cols-[2fr,1fr] gap-6" variants={itemVariants}>
+          <Profile />
+          
+          <div className="space-y-6">
+            <Button 
+              variant="outline" 
+              className="w-full bg-secondary hover:bg-secondary/80"
+            >
+              <Download className="mr-2 h-4 w-4" />
+              {t.resume}
+            </Button>
+            
+            <div className="grid grid-cols-2 gap-4">
+              <Button 
+                variant="outline" 
+                className="w-full bg-secondary hover:bg-secondary/80"
+                onClick={() => window.location.href = 'https://t.me/JorgeOeh'}
+              >
+                {t.telegramMe}
+              </Button>
+              <Button 
+                variant="outline" 
+                className="w-full bg-secondary hover:bg-secondary/80"
+                onClick={() => window.location.href = 'https://wa.me/56950653521'}
+              >
+                {t.whatsappMe}
+              </Button>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <ProjectGrid />
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <HackathonGrid />
+        </motion.div>
+
+        <motion.div className="grid lg:grid-cols-[2fr,1fr] gap-6" variants={itemVariants}>
+          <div className="space-y-6">
+            <CertificatesViewer />
+            <DegreesViewer />
+            
+            <div className="bg-card border rounded-lg p-6">
+              <h2 className="text-xl font-semibold mb-4">{t.satisfiedPartners}</h2>
+              <SocialLinks />
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            <WorkProcess />
+            <OnlinePresence />
+            <ContactSection />
+          </div>
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <BlogPreview />
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <LinkedInActivity />
+        </motion.div>
+      </div>
+    </motion.div>
+  )
+}
+
+export default function Portfolio() {
+  return (
+    <LanguageProvider>
+      <PortfolioContent />
+    </LanguageProvider>
+  )
+}
+

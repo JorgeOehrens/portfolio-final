@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { Card, CardContent } from "@/app/components/ui/card"
 import { Button } from "@/app/components/ui/button"
-import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react'
 import { Badge } from "@/app/components/ui/badge"
 
 const certificates = [
@@ -22,8 +21,7 @@ const certificates = [
 ]
 
 export default function CertificatesViewer() {
-  const [currentPage, setCurrentPage] = useState(1)
-  const [scale, setScale] = useState(1)
+  const [scale, ] = useState(1)
   const [selectedCert, setSelectedCert] = useState(certificates[0])
 
   return (

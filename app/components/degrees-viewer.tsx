@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { Card, CardContent } from "@/app/components/ui/card"
 import { Button } from "@/app/components/ui/button"
-import { ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react'
 import { Badge } from "@/app/components/ui/badge"
 
 const degrees = [
@@ -22,8 +21,7 @@ const degrees = [
 ]
 
 export default function DegreesViewer() {
-  const [currentPage, setCurrentPage] = useState(1)
-  const [scale, setScale] = useState(1)
+  const [scale, ] = useState(1)
   const [selectedDegree, setSelectedDegree] = useState(degrees[0])
 
   return (

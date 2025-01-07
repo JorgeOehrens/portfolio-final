@@ -10,8 +10,8 @@ const jakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'Developer Portfolio',
+  title: 'Software Engineer',
+  description: 'Jorge Oehrens - Developer Portfolio',
 }
 
 export default function RootLayout({

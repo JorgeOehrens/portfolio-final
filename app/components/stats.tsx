@@ -1,7 +1,7 @@
 'use client'
 
 import { Card, CardContent } from "@/app/components/ui/card"
-import { Flag, Users, Star } from 'lucide-react'
+import {  Users, Star } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
 

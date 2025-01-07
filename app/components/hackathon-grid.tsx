@@ -41,7 +41,7 @@ const hackathons: Hackathon[] = [
     name: "Stacks Hackathon Virtual",
     description: "Desarrollo de INTI DAO una aplicación descentralizada (dApp) para gobernanza en la blockchain de Stacks.",
     date: "Octubre 2024",
-    image: "/hack/hackVirtual.png",
+    image: "/hack/HackVirtual.png",
     project: "DecentralizedVote",
     achievement: "Clasificados TOP 5",
     technologies: ['Stacks', 'Clarity', 'React','Smart Contract'],
@@ -54,7 +54,7 @@ const hackathons: Hackathon[] = [
     date: "Octubre 2024",
     image: "/hack/spacechallenge.jpg",
     project: "ExoplanetFinder Chatbot",
-    achievement: "Finalista Global",
+    achievement: "MVP Terminado",
     technologies: ['Python', 'Natural Language Processing', 'Astronomy APIs','LangChain', 'Vite'],
     link: 'https://www.spaceappschallenge.org/'
   }

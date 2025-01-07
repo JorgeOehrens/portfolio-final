@@ -22,55 +22,117 @@ type Project = {
 }
 
 const projects: Project[] = [
+ 
   {
     id: 1,
-    title: "Webitae Portfolio",
-    description: "Desarrollo de sitios web profesionales y modernos para empresas y emprendedores.",
-    category: 'web',
-    image: "/placeholder.svg?height=400&width=600",
-    technologies: ['Next.js', 'React', 'Tailwind CSS'],
-    link: 'https://instagram.com/webitae'
+    title: "NASA Space Apps Challenge",
+    description: "Localización de exoplanes con Chatbot IA para realizar preguntas del selecciona, desarrollado durante el NASA Space Apps Challenge.",
+    category: 'app',
+    image: "/projects/NASA Challenge.jpeg",
+    video: "/projects/NASA Challenge.mp4",
+    technologies: ['Python', 'AI', 'Machine Learning', 'OpenAI', 'Next.js']
   },
   {
     id: 2,
-    title: "NASA Space Apps Challenge",
-    description: "Chatbot para localizar exoplanetas desarrollado durante el NASA Space Apps Challenge.",
-    category: 'app',
-    image: "/placeholder.svg?height=400&width=600",
-    video: "https://example.com/nasa-challenge.mp4",
-    technologies: ['Python', 'AI', 'Machine Learning']
-  },
-  {
-    id: 3,
     title: "Stacks Governance dApp",
     description: "Aplicación descentralizada para gobernanza desarrollada durante la hackathon de Stacks.",
     category: 'blockchain',
-    image: "/placeholder.svg?height=400&width=600",
-    technologies: ['Solidity', 'Web3.js', 'React']
+    image: "/projects/inti.png",
+    video: "/projects/inti.mp4",
+    technologies: ['Stacks','Clarity', 'Web3.js', 'React', 'Vite', 'Vercel']
+  },
+  {
+    id: 3,
+    title: "Smart Sales CRM",
+    description: "Sistema CRM personalizado para gestión de ventas y clientes.",
+    category: 'app',
+    image: "/projects/smartsales.png",
+    technologies: ['Codeigniter', 'PHP', 'Postgress','Javascript','SQL']
   },
   {
     id: 4,
-    title: "Smart Sales CRM",
-    description: "Sistema CRM personalizado para gestión de ventas y clientes.",
+    title: "Assets Web 3",
+    description: "Landing page para proyecto de tokenización",
     category: 'web',
-    image: "/placeholder.svg?height=400&width=600",
-    technologies: ['Django', 'Python', 'PostgreSQL']
+    image: "/projects/landingAssetsW3.png",
+    technologies: ['RWA', 'Blockchain', 'Ethereum','Assets Digital','React','Vite',],
+    link: 'https://assets-web3-landing.vercel.app/'
+
   },
   {
     id: 5,
-    title: "Canasta Ahorro",
-    description: "Plataforma de e-commerce respaldada por Cencosud Ventures.",
-    category: 'app',
-    image: "/placeholder.svg?height=400&width=600",
-    technologies: ['Next.js', 'Node.js', 'AWS']
+    title: "Assets Web 3 App",
+    description: "Aplicación para comprar activos digitales a travéz de tokens",
+    category: 'web',
+    image: "/projects/asswd.png",
+    video: "/projects/assetswe3d.mov",
+    technologies: ['RWA', 'Blockchain', 'Ethereum','Assets Digital','React','Vite',],
+    link: 'https://app.assetsweb3.com/'
+
   },
   {
     id: 6,
-    title: "Flux Solar Dashboard",
-    description: "Microservicio para automatización de procesos en energía solar.",
+    title: "Canasta Ahorro",
+    description: "Plataforma de e-commerce respaldada por Cencosud Ventures.",
+    category: 'app',
+    image: "/projects/canasta.png",
+    video: "/projects/canasta.mp3",
+    technologies: ['Next.js', 'Node.js', 'AWS', 'Cencosud Ventures']
+  },
+  {
+    id: 7,
+    title: "Soroban Vitae",
+    description: "Creacion de cv en blockchain Stellar.",
+    category: 'blockchain',
+    image: "/projects/sorobanVitae.png",
+    video: "/projects/sorobanVitae.mp4",
+    technologies: ['Python', 'FastAPI', 'Docker', 'Vercel'],
+    link: 'https://create-soroban-cv-dapp.vercel.app/'
+
+  },
+  
+  {
+    id: 8,
+    title: "Stone Chile",
+    description: "🔹Calculadora de cajas por M2 a usar🔹Categorías de producto🔹Fichas técnicas🔹E-commerce🔹 Integración Transbank 🔹Transferencia bancaria   🔹Tipos de envío ( retiro local y 7 días hábiles)",
     category: 'web',
-    image: "/placeholder.svg?height=400&width=600",
-    technologies: ['Python', 'FastAPI', 'Docker']
+    image: "/projects/stone.png",
+    video:"/projects/stone.mp4",
+    technologies: ['PHP', 'Wordpress' , 'Cpanel' ],
+    link: 'https://stonechile.cl/'
+
+  },
+
+
+  {
+    id: 9,
+    title: "Márquez Marnich Arquitectura",
+    description: "Sitio web portafolio",
+    category: 'web',
+    image: "/projects/marquez.png",
+    video:"/projects/marquez.mp4",
+    technologies: ['PHP', 'Wordpress' , 'Cpanel' ],
+    link: 'https://www.marquezmarnich.cl/'
+    
+  },
+  {
+    id: 10,
+    title: "WallSpace",
+    description: "Sitio web informativa",
+    category: 'web',
+    image: "/projects/wallspace.png",
+    video:"/projects/wallspace.mp4",
+    technologies: ['PHP', 'Wordpress' , 'Cpanel' ]
+  }
+  ,
+  {
+    id: 11,
+    title: "El Barometro",
+    description: "Sitio web blog, integrado a sistema de votación",
+    category: 'app',
+    image: "/projects/elbarometro.png",
+    video:"/projects/elbarometro.mp4",
+    technologies: ['PHP', 'Wordpress' , 'Cpanel' ]
   }
 ]
 

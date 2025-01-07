@@ -29,7 +29,18 @@ const steps = [
     icon: "🔗",
     titleEn: "Blockchain & Solidity",
     titleEs: "Blockchain y Solidity",
+  },
+  {
+    icon: "🕹️",
+    titleEn: "Rust",
+    titleEs: "Rust",
+  },
+  {
+    icon: "🎞️",
+    titleEn: "Node.js & Express.js",
+    titleEs:"Node.js & Express.js",
   }
+
 ]
 
 export default function WorkProcess() {

@@ -10,7 +10,7 @@ export default function Profile() {
         <div className="flex flex-col md:flex-row gap-6">
           <div className="relative">
             <Image
-              src="/placeholder.svg?height=120&width=120"
+              src="/images/logo.jpeg"
               alt="Profile"
               width={120}
               height={120}
@@ -26,7 +26,7 @@ export default function Profile() {
           
           <div className="flex-1">
             <h1 className="text-2xl font-bold mb-1">Jorge Oehrens Benavides</h1>
-            <p className="text-purple-400 mb-1">Full Stack Developer</p>
+            <p className="text-purple-400 mb-1">Software engineer</p>
             
             <div className="grid grid-cols-2 gap-y-3 mt-4">
               <div className="flex items-center gap-2">
@@ -39,7 +39,7 @@ export default function Profile() {
               </div>
               <div className="flex items-center gap-2">
                 <Building2 className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-foreground">Full Stack Developer</span>
+                <span className="text-sm text-foreground">Software engineer</span>
               </div>
               <div className="flex items-center gap-2">
                 <GraduationCap className="h-4 w-4 text-muted-foreground" />

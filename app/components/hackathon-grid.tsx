@@ -23,38 +23,40 @@ type Hackathon = {
 }
 
 const hackathons: Hackathon[] = [
+ 
+  ,
   {
     id: 1,
-    name: "NASA Space Apps Challenge",
-    description: "Desarrollé un chatbot para localizar exoplanetas durante este desafío global organizado por la NASA.",
-    date: "Octubre 2023",
-    image: "/placeholder.svg?height=400&width=600",
-    project: "ExoplanetFinder Chatbot",
-    achievement: "Finalista Global",
-    technologies: ['Python', 'Natural Language Processing', 'Astronomy APIs'],
-    link: 'https://www.spaceappschallenge.org/'
+    name: "Hackathon Hacker House",
+    description: "Desarrollo de INTI DAO una aplicación descentralizada (dApp) para gobernanza en la blockchain de Stacks.",
+    date: "Noviembre 2024",
+    image: "/blog/hackathon.jpeg",
+    project: "DecentralizedVote",
+    achievement: "Segundo Puesto	",
+    technologies: ['Stacks', 'Clarity', 'React','Smart Contract'],
+    link: 'https://dorahacks.io/hackathon/bitcoin-virtual-hackaton/detail'
   },
   {
     id: 2,
-    name: "Stacks Hackathon",
-    description: "Creé una aplicación descentralizada (dApp) para gobernanza en la blockchain de Stacks.",
-    date: "Agosto 2023",
-    image: "/placeholder.svg?height=400&width=600",
+    name: "Stacks Hackathon Virtual",
+    description: "Desarrollo de INTI DAO una aplicación descentralizada (dApp) para gobernanza en la blockchain de Stacks.",
+    date: "Octubre 2024",
+    image: "/hack/hackVirtual.png",
     project: "DecentralizedVote",
-    achievement: "Primer Lugar",
-    technologies: ['Solidity', 'Web3.js', 'React'],
-    link: 'https://www.stacks.co/'
+    achievement: "Clasificados TOP 5",
+    technologies: ['Stacks', 'Clarity', 'React','Smart Contract'],
+    link: 'https://dorahacks.io/hackathon/bitcoin-virtual-hackaton/detail'
   },
   {
     id: 3,
-    name: "ETH Global Hackathon",
-    description: "Desarrollé un protocolo de préstamos descentralizados utilizando contratos inteligentes de Ethereum.",
-    date: "Mayo 2023",
-    image: "/placeholder.svg?height=400&width=600",
-    project: "DeFi Lending Protocol",
-    achievement: "Mención Honorífica",
-    technologies: ['Ethereum', 'Solidity', 'Web3.js', 'React'],
-    link: 'https://ethglobal.com/'
+    name: "NASA Space Apps Challenge",
+    description: "Desarrollé con el equipo un chatbot para localizar exoplanetas durante este desafío global organizado por la NASA.",
+    date: "Octubre 2024",
+    image: "/hack/spacechallenge.jpg",
+    project: "ExoplanetFinder Chatbot",
+    achievement: "Finalista Global",
+    technologies: ['Python', 'Natural Language Processing', 'Astronomy APIs','LangChain', 'Vite'],
+    link: 'https://www.spaceappschallenge.org/'
   }
 ]
 

@@ -17,34 +17,24 @@ export type BlogPost = {
   image: string
   tags: string[]
 }
-
 const blogPosts: BlogPost[] = [
   {
     id: 1,
-    title: "Getting Started with Next.js 13",
-    excerpt: "Learn how to build modern web applications with Next.js 13 and its new app directory structure.",
-    content: "Next.js 13 introduces a revolutionary app directory structure that changes how we build React applications. In this post, we'll explore the key features of Next.js 13, including server components, improved routing, and enhanced performance optimizations. We'll walk through setting up a new project, creating pages and layouts, and leveraging the power of server-side rendering and static site generation. By the end of this guide, you'll have a solid foundation to start building scalable and efficient web applications with Next.js 13.",
-    date: "2023-05-20",
-    image: "/placeholder.svg?height=200&width=400",
-    tags: ["Next.js", "React", "Web Development"]
+    title: "Ganamos en la Hackathon Hacker House 🇦🇷",
+    excerpt: "Obtuvimos el segundo lugar en la Hackathon Hacker House Argentina con nuestro proyecto INTI: DAO Builder. Descubre nuestra experiencia y cómo fue participar en este increíble evento.",
+    content: " Ganamos en la Hackathon Hacker House 🇦🇷 ! Con el equipo de INTI: DAO Builder , formado por Andrés Peña Mellado y Joaquin Farfan Torres estuvimos trabajando para lograr un objetivo el cual era poder llegar lo más lejos con nuestro proyecto en donde obtuvimos el 🥈2do lugar en la categoría de Stacks . Agradecer a la organización y a todos los que nos apoyaron desde Chile en este desafío. 🙏🏼Además, pudimos participar de LABITCONF realizada el 1 y 2 de Nov, en donde el evento estuvo con todo, charlas , ventures capital interesadas en web3, proyectos y todo lo que significa una conferencia de primer nivel 🤝🔥. Pueden revisar nuestro Pitch Deck y GitHub para conocer más sobre nuestra presentación en este evento. 💻 Data Room: Revisa la información escencial de INTI ✨ https://lnkd.in/e8iJFTGnPitch Deck:  Revisa nuestra propuesta de valor ✨ https://lnkd.in/eXRQ9jz4dApp : https://lnkd.in/eukaBkDi",
+    date: "2024-05-20",
+    image: "/blog/hackathon.jpeg",
+    tags: ["Next.js", "React", "Web Development", "Blockchain","Stacks","Layer2Bitcoin", 'Full Stack', 'Software engeneer']
   },
   {
     id: 2,
-    title: "Mastering Tailwind CSS",
-    excerpt: "Discover the power of utility-first CSS with Tailwind and learn how to create stunning designs efficiently.",
-    content: "Tailwind CSS has taken the web development world by storm with its utility-first approach to styling. In this comprehensive guide, we'll dive deep into the philosophy behind Tailwind, its core concepts, and how to leverage its extensive set of utility classes to create beautiful, responsive designs. We'll cover everything from basic layout and typography to advanced topics like customizing your Tailwind configuration and optimizing for production. Whether you're a seasoned developer or just starting out, this post will help you harness the full potential of Tailwind CSS in your projects.",
-    date: "2023-07-15",
-    image: "/placeholder.svg?height=200&width=400",
-    tags: ["CSS", "Tailwind", "Web Design"]
-  },
-  {
-    id: 3,
-    title: "Introduction to TypeScript",
-    excerpt: "Explore the benefits of TypeScript and how it can improve your JavaScript development experience.",
-    content: "TypeScript has become an essential tool for many JavaScript developers, offering enhanced type checking, improved tooling, and better code organization. In this introductory post, we'll explore what TypeScript is, why you might want to use it, and how to get started with it in your projects. We'll cover basic types, interfaces, classes, and some advanced features that make TypeScript stand out. By the end of this article, you'll have a solid understanding of how TypeScript can help you write more robust and maintainable code, and you'll be ready to start incorporating it into your development workflow.",
-    date: "2023-09-01",
-    image: "/placeholder.svg?height=200&width=400",
-    tags: ["TypeScript", "JavaScript", "Programming"]
+    title: "Charla Universidad",
+    excerpt: "Compartí mi experiencia como desarrollador en la Universidad Central de Chile, hablando sobre hackathons, proyectos en blockchain y mi trabajo en startups.",
+    content: "'Camino hacia la Hackathon' ✍ fue el nombre de la charla realizada en la Universidad Central de Chile durante la semana de aniversario, donde varios egresados compartimos nuestras experiencias con los estudiantes de ingeniería. Agradezco a Alejandro Sanhueza y al Consejo de Egresados ICCI - UCEN por la invitación y la excelente coordinación de estos eventos 👏 En mi participación, hablé sobre mi recorrido como freelance, mi experiencia en el NASA Space Apps Challenge CH , donde desarrollamos una aplicación para localizar exoplanetas mediante un chatbot con inteligencia artificial, y también sobre mi última participación en la hackathon de Stacks en Argentina, en donde obtuvimos el 2.º lugar 🇨🇱 con el proyecto INTI: DAO Builder , una aplicación descentralizada en blockchain para la gobernanza de organizaciones. Además, compartí mi experiencia actual en Canasta Ahorro, una startup impulsada por Cencosud Ventures en donde me encuentro trabajando actualmente 🤝",
+    date: "2024-07-15",
+    image:     "/blog/charla.jpeg",
+    tags: ["Hackathon", "Charla", "Universidad", 'Full Stack', 'Software engeneer']
   }
 ]
 

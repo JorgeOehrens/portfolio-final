@@ -107,14 +107,16 @@ function PortfolioContent() {
           <Profile />
           
           <div className="space-y-6">
-            <Button 
-              variant="outline" 
-              className="w-full bg-secondary hover:bg-secondary/80"
-            >
-              <Download className="mr-2 h-4 w-4" />
-              {t.resume}
-            </Button>
+ 
             
+            <a
+                href="/cv/CV-JorgeOehrens.pdf" // Cambia esta ruta por la ubicación real del archivo
+                download="CV-JorgeOehrens.pdf" // Cambia el nombre del archivo si es necesario
+                className="w-full bg-secondary hover:bg-secondary/80 flex items-center justify-center border border-outline rounded-md p-2"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                {t.resume}
+              </a>
             <div className="grid grid-cols-2 gap-4">
               <Button 
                 variant="outline" 
@@ -147,10 +149,6 @@ function PortfolioContent() {
             <CertificatesViewer />
             <DegreesViewer />
             
-            <div className="bg-card border rounded-lg p-6">
-              <h2 className="text-xl font-semibold mb-4">{t.satisfiedPartners}</h2>
-              <SocialLinks />
-            </div>
           </div>
 
           <div className="space-y-6">
@@ -164,9 +162,6 @@ function PortfolioContent() {
           <BlogPreview />
         </motion.div>
 
-        <motion.div variants={itemVariants}>
-          <LinkedInActivity />
-        </motion.div>
       </div>
     </motion.div>
   )

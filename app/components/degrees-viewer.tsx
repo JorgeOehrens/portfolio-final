@@ -8,16 +8,16 @@ import { Badge } from "@/app/components/ui/badge"
 
 const degrees = [
   {
-    title: "Licenciado en Ciencias de la ingeniería",
-    institution: "Universidad Central De Chile",
-    year: "2022",
-    file: "/degrees/licenciatura.pdf"
-  },
-  {
     title: "Ingeniería civil en computación e informática",
     institution: "Universidad Central De Chile",
     year: "2024",
     file: "/degrees/ingenieria.pdf"
+  },
+  {
+    title: "Licenciado en Ciencias de la ingeniería",
+    institution: "Universidad Central De Chile",
+    year: "2022",
+    file: "/degrees/licenciatura.pdf"
   }
 ]
 
@@ -49,47 +49,11 @@ export default function DegreesViewer() {
           </div>
         </div>
 
-        <div className="flex justify-between items-center mb-4">
-          <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <span className="text-sm">Page {currentPage}</span>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setCurrentPage((prev) => prev + 1)}
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setScale((prev) => Math.max(0.5, prev - 0.1))}
-            >
-              <ZoomOut className="h-4 w-4" />
-            </Button>
-            <span className="text-sm">{Math.round(scale * 100)}%</span>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={() => setScale((prev) => Math.min(2, prev + 0.1))}
-            >
-              <ZoomIn className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
 
         <div className="bg-muted rounded-lg p-4 min-h-[400px] flex items-center justify-center">
           <iframe
             src={selectedDegree.file}
-            className="w-full h-full"
+            className="w-full h-[400px]"
             style={{
               transform: `scale(${scale})`,
               transformOrigin: 'center center'

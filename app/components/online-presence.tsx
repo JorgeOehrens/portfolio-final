@@ -24,13 +24,7 @@ export default function OnlinePresence() {
             <span className="text-xl">💼</span>
             <span className="text-sm font-medium">LinkedIn</span>
           </a>
-          <a 
-            href="https://instagram.com/webitae" 
-            className="flex items-center gap-3 bg-secondary rounded-lg p-3 hover:bg-secondary/80 transition-colors"
-          >
-            <span className="text-xl">📸</span>
-            <span className="text-sm font-medium">@/appwebitae</span>
-          </a>
+       
           <a 
             href="https://github.com/JorgeOehrens" 
             className="flex items-center gap-3 bg-secondary rounded-lg p-3 hover:bg-secondary/80 transition-colors"

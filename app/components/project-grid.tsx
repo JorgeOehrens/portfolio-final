@@ -53,7 +53,7 @@ const projects: Project[] = [
     id: 4,
     title: "Assets Web 3",
     description: "Landing page para proyecto de tokenización",
-    category: 'web',
+    category: 'blockchain',
     image: "/projects/landingAssetsW3.png",
     technologies: ['RWA', 'Blockchain', 'Ethereum','Assets Digital','React','Vite',],
     link: 'https://assets-web3-landing.vercel.app/'
@@ -63,7 +63,7 @@ const projects: Project[] = [
     id: 5,
     title: "Assets Web 3 App",
     description: "Aplicación para comprar activos digitales a travéz de tokens",
-    category: 'web',
+    category: 'blockchain',
     image: "/projects/asswd.png",
     video: "/projects/assetswe3d.mov",
     technologies: ['RWA', 'Blockchain', 'Ethereum','Assets Digital','React','Vite',],
@@ -165,36 +165,41 @@ export default function ProjectGrid() {
             <span className="text-purple-400">💼</span>
             {t.projectsTitle}
           </h2>
-          <div className="flex gap-2">
-            <Button
-              variant={filter === 'all' ? "default" : "outline"}
-              size="sm"
-              onClick={() => setFilter('all')}
-            >
-              {t.all}
-            </Button>
-            <Button
-              variant={filter === 'web' ? "default" : "outline"}
-              size="sm"
-              onClick={() => setFilter('web')}
-            >
-              {t.web}
-            </Button>
-            <Button
-              variant={filter === 'app' ? "default" : "outline"}
-              size="sm"
-              onClick={() => setFilter('app')}
-            >
-              {t.apps}
-            </Button>
-            <Button
-              variant={filter === 'blockchain' ? "default" : "outline"}
-              size="sm"
-              onClick={() => setFilter('blockchain')}
-            >
-              {t.blockchain}
-            </Button>
-          </div>
+          <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+  <Button
+    variant={filter === 'all' ? "default" : "outline"}
+    size="sm"
+    onClick={() => setFilter('all')}
+    className="min-w-[100px] text-center"
+  >
+    {t.all}
+  </Button>
+  <Button
+    variant={filter === 'web' ? "default" : "outline"}
+    size="sm"
+    onClick={() => setFilter('web')}
+    className="min-w-[100px] text-center"
+  >
+    {t.web}
+  </Button>
+  <Button
+    variant={filter === 'app' ? "default" : "outline"}
+    size="sm"
+    onClick={() => setFilter('app')}
+    className="min-w-[100px] text-center"
+  >
+    {t.apps}
+  </Button>
+  <Button
+    variant={filter === 'blockchain' ? "default" : "outline"}
+    size="sm"
+    onClick={() => setFilter('blockchain')}
+    className="min-w-[100px] text-center"
+  >
+    {t.blockchain}
+  </Button>
+</div>
+
         </div>
 
         <AnimatePresence>

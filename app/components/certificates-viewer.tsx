@@ -32,19 +32,20 @@ export default function CertificatesViewer() {
             <span className="text-purple-400">🎓</span>
             Certificates
           </h2>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
             {certificates.map((cert, index) => (
               <Button
                 key={index}
                 variant={selectedCert === cert ? "default" : "outline"}
                 size="sm"
                 onClick={() => setSelectedCert(cert)}
-                className="text-xs"
+                className="text-xs min-w-[100px] md:w-40 text-center"
               >
                 {cert.issuer}
               </Button>
             ))}
           </div>
+
         </div>
 
         <div className="flex justify-between items-center mb-4">

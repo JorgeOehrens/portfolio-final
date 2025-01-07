@@ -22,7 +22,7 @@ function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage()
 
   return (
-    <div className="flex space-x-2">
+    <div className="flex justify-center lg:justify-start space-x-2">
       <Button
         variant="outline"
         size="lg"
@@ -92,39 +92,39 @@ function PortfolioContent() {
       variants={containerVariants}
     >
       <div className="max-w-7xl mx-auto space-y-6">
-        <motion.div className="flex justify-between items-center" variants={itemVariants}>
+        {/* Header */}
+        <motion.div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0" variants={itemVariants}>
           <LanguageSwitcher />
           <ThemeToggle />
         </motion.div>
 
+        {/* Stats Section */}
         <motion.div variants={itemVariants}>
           <Stats />
         </motion.div>
 
-        <motion.div className="grid lg:grid-cols-[2fr,1fr] gap-6" variants={itemVariants}>
+        {/* Profile + Actions */}
+        <motion.div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-6" variants={itemVariants}>
           <Profile />
-          
           <div className="space-y-6">
- 
-            
             <a
-                href="/cv/CV-JorgeOehrens.pdf" // Cambia esta ruta por la ubicación real del archivo
-                download="CV-JorgeOehrens.pdf" // Cambia el nombre del archivo si es necesario
-                className="w-full bg-secondary hover:bg-secondary/80 flex items-center justify-center border border-outline rounded-md p-2"
-              >
-                <Download className="mr-2 h-4 w-4" />
-                {t.resume}
-              </a>
-            <div className="grid grid-cols-2 gap-4">
-              <Button 
-                variant="outline" 
+              href="/cv/CV-JorgeOehrens.pdf"
+              download="CV-JorgeOehrens.pdf"
+              className="w-full bg-secondary hover:bg-secondary/80 flex items-center justify-center border border-outline rounded-md p-2"
+            >
+              <Download className="mr-2 h-4 w-4" />
+              {t.resume}
+            </a>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Button
+                variant="outline"
                 className="w-full bg-secondary hover:bg-secondary/80"
                 onClick={() => window.location.href = 'https://t.me/JorgeOeh'}
               >
                 {t.telegramMe}
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="w-full bg-secondary hover:bg-secondary/80"
                 onClick={() => window.location.href = 'https://wa.me/56950653521'}
               >
@@ -134,6 +134,7 @@ function PortfolioContent() {
           </div>
         </motion.div>
 
+        {/* Grids */}
         <motion.div variants={itemVariants}>
           <ProjectGrid />
         </motion.div>
@@ -142,13 +143,12 @@ function PortfolioContent() {
           <HackathonGrid />
         </motion.div>
 
-        <motion.div className="grid lg:grid-cols-[2fr,1fr] gap-6" variants={itemVariants}>
+        {/* Certificates + Work Process */}
+        <motion.div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-6" variants={itemVariants}>
           <div className="space-y-6">
             <CertificatesViewer />
             <DegreesViewer />
-            
           </div>
-
           <div className="space-y-6">
             <WorkProcess />
             <OnlinePresence />
@@ -156,10 +156,10 @@ function PortfolioContent() {
           </div>
         </motion.div>
 
+        {/* Blog Preview */}
         <motion.div variants={itemVariants}>
           <BlogPreview />
         </motion.div>
-
       </div>
     </motion.div>
   )
@@ -172,4 +172,3 @@ export default function Portfolio() {
     </LanguageProvider>
   )
 }
-

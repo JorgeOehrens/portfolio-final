@@ -76,7 +76,7 @@ const projects: Project[] = [
     description: "Plataforma de e-commerce respaldada por Cencosud Ventures.",
     category: 'app',
     image: "/projects/canasta.png",
-    video: "/projects/canasta.mp3",
+    video: "/projects/canasta.mp4",
     technologies: ['Next.js', 'Node.js', 'AWS', 'Cencosud Ventures']
   },
   {

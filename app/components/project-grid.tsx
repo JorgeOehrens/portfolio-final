@@ -131,7 +131,7 @@ const projects: Project[] = [
     description: "Sitio web blog, integrado a sistema de votación",
     category: 'app',
     image: "/projects/elbarometro.png",
-    video:"/projects/elbarometro.mov",
+    video:"/projects/elbarometro2.mov",
     technologies: ['PHP', 'Wordpress' , 'Cpanel' ]
   }
 ]

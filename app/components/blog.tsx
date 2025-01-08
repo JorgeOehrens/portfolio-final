@@ -23,7 +23,7 @@ const blogPosts: BlogPost[] = [
     title: "Ganamos en la Hackathon Hacker House 🇦🇷",
     excerpt: "Learn how to build modern web applications with Next.js 13 and its new app directory structure.",
     content: " Ganamos en la Hackathon Hacker House 🇦🇷 ! Con el equipo de INTI: DAO Builder , formado por Andrés Peña Mellado y Joaquin Farfan Torres estuvimos trabajando para lograr un objetivo el cual era poder llegar lo más lejos con nuestro proyecto en donde obtuvimos el 🥈2do lugar en la categoría de Stacks . Agradecer a la organización y a todos los que nos apoyaron desde Chile en este desafío. 🙏🏼Además, pudimos participar de LABITCONF realizada el 1 y 2 de Nov, en donde el evento estuvo con todo, charlas , ventures capital interesadas en web3, proyectos y todo lo que significa una conferencia de primer nivel 🤝🔥. Pueden revisar nuestro Pitch Deck y GitHub para conocer más sobre nuestra presentación en este evento. 💻 Data Room: Revisa la información escencial de INTI ✨ https://lnkd.in/e8iJFTGnPitch Deck:  Revisa nuestra propuesta de valor ✨ https://lnkd.in/eXRQ9jz4dApp : https://lnkd.in/eukaBkDi",
-    date: "2024-05-20",
+    date: "2024-10",
     image: "/blog/charla.jpeg",
     tags: ["Next.js", "React", "Web Development", "Blockchain","Stacks","Layer2Bitcoin", 'Full Stack', 'Software engeneer']
   },
@@ -32,7 +32,7 @@ const blogPosts: BlogPost[] = [
     title: "Charla Universidad",
     excerpt: "Discover the power of utility-first CSS with Tailwind and learn how to create stunning designs efficiently.",
     content: "'Camino hacia la Hackathon' ✍ fue el nombre de la charla realizada en la Universidad Central de Chile durante la semana de aniversario, donde varios egresados compartimos nuestras experiencias con los estudiantes de ingeniería. Agradezco a Alejandro Sanhueza y al Consejo de Egresados ICCI - UCEN por la invitación y la excelente coordinación de estos eventos 👏 En mi participación, hablé sobre mi recorrido como freelance, mi experiencia en el NASA Space Apps Challenge CH , donde desarrollamos una aplicación para localizar exoplanetas mediante un chatbot con inteligencia artificial, y también sobre mi última participación en la hackathon de Stacks en Argentina, en donde obtuvimos el 2.º lugar 🇨🇱 con el proyecto INTI: DAO Builder , una aplicación descentralizada en blockchain para la gobernanza de organizaciones. Además, compartí mi experiencia actual en Canasta Ahorro, una startup impulsada por Cencosud Ventures en donde me encuentro trabajando actualmente 🤝",
-    date: "2024-07-15",
+    date: "2024-11",
     image: "/placeholder.svg?height=200&width=400",
     tags: ["Hackathon", "Charla", "Universidad", 'Full Stack', 'Software engeneer']
   }

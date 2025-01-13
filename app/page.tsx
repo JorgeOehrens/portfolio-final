@@ -108,8 +108,8 @@ function PortfolioContent() {
           <Profile />
           <div className="space-y-6">
             <a
-              href="/cv/CV-JorgeOehrens.pdf"
-              download="CV-JorgeOehrens.pdf"
+              href="/cv/JorgeOehrensCV.pdf"
+              download="JorgeOehrensCV.pdf"
               className="w-full bg-secondary hover:bg-secondary/80 flex items-center justify-center border border-outline rounded-md p-2"
             >
               <Download className="mr-2 h-4 w-4" />

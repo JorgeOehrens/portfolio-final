@@ -13,6 +13,7 @@ import ContactSection from './components/contact-section'
 import { ThemeToggle } from './components/theme-toggle'
 import CertificatesViewer from './components/certificates-viewer'
 import DegreesViewer from './components/degrees-viewer'
+import Experience from './components/experience'
 import { motion } from 'framer-motion'
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext'
 import { translations } from './utils/translations'
@@ -132,6 +133,11 @@ function PortfolioContent() {
               </Button>
             </div>
           </div>
+        </motion.div>
+
+        {/* Experience */}
+        <motion.div variants={itemVariants}>
+          <Experience />
         </motion.div>
 
         {/* Grids */}

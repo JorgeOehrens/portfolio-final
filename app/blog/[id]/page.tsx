@@ -2,7 +2,7 @@
 
 import { useLanguage } from '../../contexts/LanguageContext'
 import { translations } from '../../utils/translations'
-import { blogPosts } from '@/app/components/blog-preview'
+import { blogPosts } from '@/app/data/posts'
 import Image from 'next/image'
 import { Badge } from "@/app/components/ui/badge"
 import { Button } from "@/app/components/ui/button"
@@ -31,13 +31,23 @@ export default function BlogPostPage({ params }: { params: { id: string } }) {
         </Button>
       </Link>
       <article className="max-w-3xl mx-auto">
-        <Image
-          src={post.image}
-          alt={post.title}
-          width={800}
-          height={400}
-          className="w-full object-cover rounded-lg mb-8"
-        />
+        {post.video ? (
+          <video
+            src={post.video}
+            poster={post.image}
+            controls
+            playsInline
+            className="w-full rounded-lg mb-8"
+          />
+        ) : (
+          <Image
+            src={post.image}
+            alt={post.title}
+            width={800}
+            height={400}
+            className="w-full object-cover rounded-lg mb-8"
+          />
+        )}
         <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
         <div className="flex flex-wrap items-center gap-4 mb-8 text-muted-foreground">
           <div className="flex items-center">

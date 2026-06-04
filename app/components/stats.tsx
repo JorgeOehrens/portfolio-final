@@ -18,7 +18,7 @@ export default function Stats() {
           <div className="flex items-center gap-4">
             <Users className="h-5 w-5 text-purple-400" />
             <div>
-              <div className="text-4xl font-bold">71<span className="text-purple-400">+</span></div>
+              <div className="text-4xl font-bold">113<span className="text-purple-400">+</span></div>
               <div className="text-sm text-muted-foreground">{t.satisfiedPartners}</div>
             </div>
           </div>
@@ -30,7 +30,7 @@ export default function Stats() {
           <div className="flex items-center gap-4">
             <Star className="h-5 w-5 text-purple-400" />
             <div>
-              <div className="text-4xl font-bold">4<span className="text-purple-400">+</span></div>
+              <div className="text-4xl font-bold">6<span className="text-purple-400">+</span></div>
               <div className="text-sm text-muted-foreground">{t.certificates}</div>
             </div>
           </div>

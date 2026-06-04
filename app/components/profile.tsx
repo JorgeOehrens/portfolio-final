@@ -26,8 +26,11 @@ export default function Profile() {
           
           <div className="flex-1">
             <h1 className="text-2xl font-bold mb-1">Jorge Oehrens Benavides</h1>
-            <p className="text-purple-400 mb-1">Software engineer</p>
-            
+            <p className="text-purple-400 mb-1">Software Engineer · Product Engineer</p>
+            <p className="text-sm text-muted-foreground mt-2 max-w-xl">
+              Construyo productos digitales end-to-end —backend, frontend e infraestructura— con foco en AI y en que cada entrega genere valor real. Actualmente Software Engineer en WelcomeBack y cofundador de Educari y AgroJob.
+            </p>
+
             <div className="grid grid-cols-2 gap-y-3 mt-4">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-muted-foreground" />
@@ -39,7 +42,7 @@ export default function Profile() {
               </div>
               <div className="flex items-center gap-2">
                 <Building2 className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-foreground">Software engineer</span>
+                <span className="text-sm text-foreground">WelcomeBack · Cooking 👨‍🍳</span>
               </div>
               <div className="flex items-center gap-2">
                 <GraduationCap className="h-4 w-4 text-muted-foreground" />

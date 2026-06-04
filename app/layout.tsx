@@ -10,8 +10,8 @@ const jakarta = Plus_Jakarta_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Software Engineer',
-  description: 'Jorge Oehrens - Developer Portfolio',
+  title: 'Jorge Oehrens · Software Engineer & Product Engineer',
+  description: 'Jorge Oehrens — Software Engineer y Product Engineer. Construyo productos digitales end-to-end (AI, web y data). Software Engineer en WelcomeBack, cofundador de Educari y AgroJob.',
 }
 
 export default function RootLayout({

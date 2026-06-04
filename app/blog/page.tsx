@@ -2,7 +2,7 @@
 
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
-import { blogPosts, BlogPost } from '../components/blog-preview'
+import { blogPosts, type BlogPost } from '@/app/data/posts'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Badge } from "@/app/components/ui/badge"

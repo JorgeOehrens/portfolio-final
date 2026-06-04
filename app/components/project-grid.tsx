@@ -7,134 +7,10 @@ import Image from 'next/image'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/app/components/ui/dialog"
 import { Badge } from "@/app/components/ui/badge"
 import { motion, AnimatePresence } from 'framer-motion'
+import { Github, Smartphone } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
-
-type Project = {
-  id: number
-  title: string
-  description: string
-  category: 'web' | 'app' | 'blockchain'
-  image: string
-  video?: string
-  technologies: string[]
-  link?: string
-}
-
-const projects: Project[] = [
- 
-  {
-    id: 1,
-    title: "NASA Space Apps Challenge",
-    description: "Localización de exoplanes con Chatbot IA para realizar preguntas del selecciona, desarrollado durante el NASA Space Apps Challenge.",
-    category: 'app',
-    image: "/projects/NASA Challenge.jpeg",
-    video: "/projects/NASA Challenge.mp4",
-    technologies: ['Python', 'AI', 'Machine Learning', 'OpenAI', 'Next.js']
-  },
-  {
-    id: 2,
-    title: "Stacks Governance dApp",
-    description: "Aplicación descentralizada para gobernanza desarrollada durante la hackathon de Stacks.",
-    category: 'blockchain',
-    image: "/projects/inti.png",
-    video: "/projects/inti.mp4",
-    technologies: ['Stacks','Clarity', 'Web3.js', 'React', 'Vite', 'Vercel']
-  },
-  {
-    id: 3,
-    title: "Smart Sales CRM",
-    description: "Sistema CRM personalizado para gestión de ventas y clientes.",
-    category: 'app',
-    image: "/projects/smartsales.png",
-    technologies: ['Codeigniter', 'PHP', 'Postgress','Javascript','SQL']
-  },
-  {
-    id: 4,
-    title: "Assets Web 3",
-    description: "Landing page para proyecto de tokenización",
-    category: 'blockchain',
-    image: "/projects/landingAssetsW3.png",
-    technologies: ['RWA', 'Blockchain', 'Ethereum','Assets Digital','React','Vite',],
-    link: 'https://assets-web3-landing.vercel.app/'
-
-  },
-  {
-    id: 5,
-    title: "Assets Web 3 App",
-    description: "Aplicación para comprar activos digitales a travéz de tokens",
-    category: 'blockchain',
-    image: "/projects/asswd.png",
-    video: "/projects/assetswe3d.mov",
-    technologies: ['RWA', 'Blockchain', 'Ethereum','Assets Digital','React','Vite',],
-    link: 'https://app.assetsweb3.com/'
-
-  },
-  {
-    id: 6,
-    title: "Canasta Ahorro",
-    description: "Plataforma de e-commerce respaldada por Cencosud Ventures.",
-    category: 'app',
-    image: "/projects/canasta.png",
-    video: "/projects/canasta.mp4",
-    technologies: ['Next.js', 'Node.js', 'AWS', 'Cencosud Ventures']
-  },
-  {
-    id: 7,
-    title: "Soroban Vitae",
-    description: "Creacion de cv en blockchain Stellar.",
-    category: 'blockchain',
-    image: "/projects/sorobanVitae.png",
-    video: "/projects/sorobanVitae.mp4",
-    technologies: ['Python', 'FastAPI', 'Docker', 'Vercel'],
-    link: 'https://create-soroban-cv-dapp.vercel.app/'
-
-  },
-  
-  {
-    id: 8,
-    title: "Stone Chile",
-    description: "🔹Calculadora de cajas por M2 a usar🔹Categorías de producto🔹Fichas técnicas🔹E-commerce🔹 Integración Transbank 🔹Transferencia bancaria   🔹Tipos de envío ( retiro local y 7 días hábiles)",
-    category: 'web',
-    image: "/projects/stone.png",
-    video:"/projects/stone.mp4",
-    technologies: ['PHP', 'Wordpress' , 'Cpanel' ],
-    link: 'https://stonechile.cl/'
-
-  },
-
-
-  {
-    id: 9,
-    title: "Márquez Marnich Arquitectura",
-    description: "Sitio web portafolio",
-    category: 'web',
-    image: "/projects/marquez.png",
-    video:"/projects/marquez.mp4",
-    technologies: ['PHP', 'Wordpress' , 'Cpanel' ],
-    link: 'https://www.marquezmarnich.cl/'
-    
-  },
-  {
-    id: 10,
-    title: "WallSpace",
-    description: "Sitio web informativa",
-    category: 'web',
-    image: "/projects/wallspace.png",
-    video:"/projects/wallspace.mp4",
-    technologies: ['PHP', 'Wordpress' , 'Cpanel' ]
-  }
-  ,
-  {
-    id: 11,
-    title: "El Barometro",
-    description: "Sitio web blog, integrado a sistema de votación",
-    category: 'app',
-    image: "/projects/elbarometro.png",
-    video:"/projects/elbarometro2.mov",
-    technologies: ['PHP', 'Wordpress' , 'Cpanel' ]
-  }
-]
+import { projects, type Project } from '../data/projects'
 
 export default function ProjectGrid() {
   const [filter, setFilter] = useState<'all' | 'web' | 'app' | 'blockchain'>('all')
@@ -148,9 +24,14 @@ export default function ProjectGrid() {
     return () => clearTimeout(timer)
   }, [])
 
-  const filteredProjects = projects.filter(
-    project => filter === 'all' || project.category === filter
-  )
+  const filteredProjects = projects
+    .filter(
+      project =>
+        filter === 'all' ||
+        project.category === filter ||
+        project.categories?.includes(filter)
+    )
+    .sort((a, b) => b.id - a.id)
 
   const expandAnimation = {
     hidden: { opacity: 0, height: 0 },
@@ -290,14 +171,36 @@ export default function ProjectGrid() {
                     </Badge>
                   ))}
                 </div>
-                {selectedProject.link && (
-                  <Button
-                    onClick={() => window.open(selectedProject.link, '_blank')}
-                    className="w-full"
-                  >
-                    {t.viewProject}
-                  </Button>
-                )}
+                <div className="flex flex-col gap-2">
+                  {selectedProject.link && (
+                    <Button
+                      onClick={() => window.open(selectedProject.link, '_blank')}
+                      className="w-full"
+                    >
+                      {t.viewProject}
+                    </Button>
+                  )}
+                  {selectedProject.github && (
+                    <Button
+                      variant="outline"
+                      onClick={() => window.open(selectedProject.github, '_blank')}
+                      className="w-full gap-2"
+                    >
+                      <Github className="h-4 w-4" />
+                      {t.viewCode}
+                    </Button>
+                  )}
+                  {selectedProject.appStore && (
+                    <Button
+                      variant="outline"
+                      onClick={() => window.open(selectedProject.appStore, '_blank')}
+                      className="w-full gap-2"
+                    >
+                      <Smartphone className="h-4 w-4" />
+                      {t.downloadApp}
+                    </Button>
+                  )}
+                </div>
               </motion.div>
             </DialogContent>
           )}

@@ -23,8 +23,28 @@ type Hackathon = {
 }
 
 const hackathons: Hackathon[] = [
- 
-  ,
+  {
+    id: 5,
+    name: "Platanus Hack",
+    description: "En el track de Human Enhancement construimos un sistema de visualización asistida para personas con discapacidad visual: una app que guía con vibraciones y describe en tiempo real lo que ve la cámara (detección de obstáculos, pasos peatonales y orientación).",
+    date: "Noviembre 2025",
+    image: "/blog/platanus-hack.png",
+    project: "Visión asistida (Human Enhancement)",
+    achievement: "Seleccionado",
+    technologies: ['YOLOv8', 'Claude (Anthropic)', 'ElevenLabs', 'Expo / React Native', 'FastAPI', 'AWS'],
+    link: 'https://hack.platan.us/'
+  },
+  {
+    id: 4,
+    name: "HackMeridian (Stellar)",
+    description: "Becado por Tellus Cooperative para HackMeridian 2025 en Río de Janeiro. En el track de Composability presenté 'Pitch Perfect', una app de IA que da retroalimentación para pulir un pitch y mejorar las chances de financiamiento, conectada a Stellar.",
+    date: "Septiembre 2025",
+    image: "/blog/hackathon.jpeg",
+    project: "Pitch Perfect",
+    achievement: "Becado · Track Composability",
+    technologies: ['Stellar', 'IA', 'React Native', 'FastAPI'],
+    link: 'https://lnkd.in/eVvDvY2p'
+  },
   {
     id: 1,
     name: "Hackathon Hacker House",

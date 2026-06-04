@@ -7,38 +7,43 @@ import { translations } from '../utils/translations'
 const steps = [
   {
     icon: "💻",
-    titleEn: "Full Stack Development",
-    titleEs: "Desarrollo Full Stack",
+    titleEn: "Full Stack Product Engineering",
+    titleEs: "Ingeniería de Producto Full Stack",
   },
   {
     icon: "⚛️",
-    titleEn: "React & Next.js",
-    titleEs: "React y Next.js",
+    titleEn: "TypeScript, React & Next.js",
+    titleEs: "TypeScript, React y Next.js",
   },
   {
-    icon: "🐍",
-    titleEn: "Python & Django",
-    titleEs: "Python y Django",
+    icon: "🚀",
+    titleEn: "Node.js & NestJS",
+    titleEs: "Node.js y NestJS",
   },
   {
     icon: "☁️",
-    titleEn: "AWS & Cloud",
-    titleEs: "AWS y Cloud",
+    titleEn: "AWS & Serverless (SST)",
+    titleEs: "AWS y Serverless (SST)",
+  },
+  {
+    icon: "🗄️",
+    titleEn: "PostgreSQL & Drizzle",
+    titleEs: "PostgreSQL y Drizzle",
+  },
+  {
+    icon: "🤖",
+    titleEn: "AI & LLMs (OpenAI · RAG)",
+    titleEs: "IA y LLMs (OpenAI · RAG)",
+  },
+  {
+    icon: "📊",
+    titleEn: "Data Engineering (PySpark · Databricks)",
+    titleEs: "Data Engineering (PySpark · Databricks)",
   },
   {
     icon: "🔗",
-    titleEn: "Blockchain & Solidity",
-    titleEs: "Blockchain y Solidity",
-  },
-  {
-    icon: "🕹️",
-    titleEn: "Rust",
-    titleEs: "Rust",
-  },
-  {
-    icon: "🎞️",
-    titleEn: "Node.js & Express.js",
-    titleEs:"Node.js & Express.js",
+    titleEn: "Blockchain (Stacks · Stellar)",
+    titleEs: "Blockchain (Stacks · Stellar)",
   }
 
 ]

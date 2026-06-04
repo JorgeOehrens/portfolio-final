@@ -9,7 +9,16 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'sans-serif'],
+  			display: ['var(--font-inter)', '-apple-system', 'BlinkMacSystemFont', 'Helvetica Neue', 'sans-serif'],
+  			mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace']
+  		},
   		colors: {
+  			brand: {
+  				DEFAULT: 'hsl(var(--brand))',
+  				foreground: 'hsl(var(--brand-foreground))'
+  			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

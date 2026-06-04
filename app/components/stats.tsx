@@ -1,7 +1,7 @@
 'use client'
 
 import { Card, CardContent } from "@/app/components/ui/card"
-import {  Users, Star } from 'lucide-react'
+import { Github, Calendar, Trophy } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
 
@@ -9,34 +9,26 @@ export default function Stats() {
   const { language } = useLanguage()
   const t = translations[language]
 
+  const stats = [
+    { icon: Github, value: '113', suffix: '+', label: t.satisfiedPartners },
+    { icon: Calendar, value: '6', suffix: '+', label: t.certificates },
+    { icon: Trophy, value: '5', suffix: '+', label: t.hackathonsTitle },
+  ]
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-     
-      
-      <Card className="bg-card border-border">
-        <CardContent className="p-6">
-          <div className="flex items-center gap-4">
-            <Users className="h-5 w-5 text-purple-400" />
-            <div>
-              <div className="text-4xl font-bold">113<span className="text-purple-400">+</span></div>
-              <div className="text-sm text-muted-foreground">{t.satisfiedPartners}</div>
+    <div className="grid grid-cols-3 gap-3">
+      {stats.map(({ icon: Icon, value, suffix, label }) => (
+        <Card key={label} className="bg-card border-border">
+          <CardContent className="flex flex-col gap-2 p-4">
+            <Icon className="h-4 w-4 text-primary" />
+            <div className="font-display text-2xl font-extrabold leading-none sm:text-3xl">
+              {value}
+              <span className="text-primary">{suffix}</span>
             </div>
-          </div>
-        </CardContent>
-      </Card>
-      
-      <Card className="bg-card border-border">
-        <CardContent className="p-6">
-          <div className="flex items-center gap-4">
-            <Star className="h-5 w-5 text-purple-400" />
-            <div>
-              <div className="text-4xl font-bold">6<span className="text-purple-400">+</span></div>
-              <div className="text-sm text-muted-foreground">{t.certificates}</div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+            <div className="text-xs leading-tight text-muted-foreground">{label}</div>
+          </CardContent>
+        </Card>
+      ))}
     </div>
   )
 }
-

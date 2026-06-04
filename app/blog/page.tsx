@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { Badge } from "@/app/components/ui/badge"
 import { Button } from "@/app/components/ui/button"
 import { ArrowLeft } from 'lucide-react'
+import posthog from 'posthog-js'
 
 export default function BlogPage() {
   const { language } = useLanguage()
@@ -21,18 +22,20 @@ export default function BlogPage() {
           {t.backToHome}
         </Button>
       </Link>
-      <h1 className="text-3xl font-bold mb-8">{t.blog}</h1>
+      <h1 className="font-display text-3xl font-extrabold tracking-tight mb-8 sm:text-4xl">{t.blog}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogPosts.map((post: BlogPost) => (
-          <Link href={`/blog/${post.id}`} key={post.id} className="group">
-            <div className="bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-              <Image
-                src={post.image}
-                alt={post.title}
-                width={400}
-                height={200}
-                className="w-full object-cover group-hover:scale-105 transition-transform duration-200"
-              />
+          <Link href={`/blog/${post.id}`} key={post.id} className="group" onClick={() => posthog.capture('blog_post_opened', { post_id: post.id, post_title: post.title })}>
+            <div className="overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/40 hover:shadow-lg">
+              <div className="aspect-video overflow-hidden">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={400}
+                  height={225}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
               <div className="p-6">
                 <h2 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">{post.title}</h2>
                 <p className="text-muted-foreground mb-4">{post.excerpt}</p>

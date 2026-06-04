@@ -1,8 +1,10 @@
 'use client'
 
 import { Card, CardContent } from "@/app/components/ui/card"
+import { Layers } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
+import SectionHeading from './section-heading'
 
 const steps = [
   {
@@ -55,16 +57,13 @@ export default function WorkProcess() {
   return (
     <Card className="bg-card border-border">
       <CardContent className="p-6">
-        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
-          <span className="text-purple-400">⭐</span>
-          {t.workProcess}
-        </h2>
-        
-        <div className="space-y-3">
+        <SectionHeading icon={Layers} title={t.workProcess} />
+
+        <div className="space-y-2">
           {steps.map((step, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 bg-secondary rounded-lg p-3"
+              className="flex items-center gap-3 rounded-xl border border-transparent bg-secondary/60 p-3 transition-colors hover:border-primary/30 hover:bg-secondary"
             >
               <span className="text-xl">{step.icon}</span>
               <span className="text-sm font-medium">{language === 'en' ? step.titleEn : step.titleEs}</span>

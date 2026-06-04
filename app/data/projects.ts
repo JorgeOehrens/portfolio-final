@@ -2,9 +2,9 @@ export type Project = {
   id: number
   title: string
   description: string
-  category: 'web' | 'app' | 'blockchain'
+  category: 'web' | 'app' | 'blockchain' | 'data'
   /** Categorías adicionales para que el proyecto aparezca en más de un filtro (p. ej. ['web','app']). */
-  categories?: ('web' | 'app' | 'blockchain')[]
+  categories?: ('web' | 'app' | 'blockchain' | 'data')[]
   image: string
   video?: string
   technologies: string[]
@@ -209,5 +209,13 @@ export const projects: Project[] = [
     image: "/projects/la-pizarra.png",
     technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'Vercel'],
     link: 'https://la-pizarra.vercel.app/'
+  },
+  {
+    id: 21,
+    title: "OnNet Fibra · Plataforma Big Data",
+    description: "Plataforma de datos en Azure para una red de fibra óptica. Ingiere potencias de OLT/ONT y fibra óptica más plataformas operacionales (factibilidad, cierres, construcciones, alarmas) mediante Azure Data Factory, cola Kafka y notebooks, bajo una arquitectura de datos medallón (Bronze/Silver/Gold) procesada en Databricks (PySpark). Pipeline de históricos + incrementales programados por minutos, horas y días, con entregables en dashboards de Databricks, Power BI y archivos Excel. Optimización de costos cloud de ~20%.",
+    category: 'data',
+    image: "/projects/onnet-bigdata.png",
+    technologies: ['Azure', 'Azure Data Factory', 'Kafka', 'Databricks', 'PySpark', 'Medallion', 'Power BI', 'Excel', 'Data Lake'],
   }
 ]

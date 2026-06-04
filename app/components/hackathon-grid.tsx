@@ -1,14 +1,17 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Card, CardContent } from "@/app/components/ui/card"
 import { Button } from "@/app/components/ui/button"
 import Image from 'next/image'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/app/components/ui/dialog"
 import { Badge } from "@/app/components/ui/badge"
 import { motion, AnimatePresence } from 'framer-motion'
+import { Trophy } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
+import SectionHeading from './section-heading'
+import posthog from 'posthog-js'
 
 type Hackathon = {
   id: number
@@ -82,14 +85,8 @@ const hackathons: Hackathon[] = [
 
 export default function HackathonGrid() {
   const [selectedHackathon, setSelectedHackathon] = useState<Hackathon | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
   const { language } = useLanguage()
   const t = translations[language]
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1500)
-    return () => clearTimeout(timer)
-  }, [])
 
   const expandAnimation = {
     hidden: { opacity: 0, height: 0 },
@@ -99,10 +96,7 @@ export default function HackathonGrid() {
   return (
     <Card className="bg-card border-border">
       <CardContent className="p-6">
-        <h2 className="text-xl font-semibold mb-6 flex items-center gap-2">
-          <span className="text-purple-400">🏆</span>
-          {t.hackathonsTitle}
-        </h2>
+        <SectionHeading icon={Trophy} title={t.hackathonsTitle} />
 
         <AnimatePresence>
           <motion.div 
@@ -111,31 +105,30 @@ export default function HackathonGrid() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            {isLoading
-              ? Array(3).fill(0).map((_, index) => (
-                  <HackathonSkeleton key={index} />
-                ))
-              : hackathons.map((hackathon) => (
+            {hackathons.map((hackathon) => (
                   <motion.div
                     key={hackathon.id}
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="group cursor-pointer"
-                    onClick={() => setSelectedHackathon(hackathon)}
+                    className="group cursor-pointer rounded-2xl border border-border/60 bg-secondary/30 p-3 transition-all hover:border-primary/40 hover:bg-secondary/60"
+                    onClick={() => {
+                      posthog.capture('hackathon_clicked', { hackathon_name: hackathon.name, achievement: hackathon.achievement })
+                      setSelectedHackathon(hackathon)
+                    }}
                   >
-                    <div className="relative aspect-video overflow-hidden rounded-lg mb-3">
+                    <div className="relative mb-3 aspect-video overflow-hidden rounded-xl">
                       <Image
                         src={hackathon.image}
                         alt={hackathon.name}
                         fill
-                        className="object-cover transition-transform group-hover:scale-105"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
-                    <h3 className="font-semibold mb-1">{hackathon.name}</h3>
-                    <p className="text-sm text-muted-foreground mb-2">{hackathon.date}</p>
-                    <p className="text-sm line-clamp-2 mb-2">{hackathon.project}</p>
+                    <h3 className="mb-1 font-semibold">{hackathon.name}</h3>
+                    <p className="mb-2 text-sm text-muted-foreground">{hackathon.date}</p>
+                    <p className="mb-2 line-clamp-2 text-sm">{hackathon.project}</p>
                     {hackathon.achievement && (
                       <Badge variant="secondary" className="mb-2">
                         {hackathon.achievement}
@@ -186,7 +179,10 @@ export default function HackathonGrid() {
                 </div>
                 {selectedHackathon.link && (
                   <Button
-                    onClick={() => window.open(selectedHackathon.link, '_blank')}
+                    onClick={() => {
+                      posthog.capture('hackathon_link_opened', { hackathon_name: selectedHackathon.name })
+                      window.open(selectedHackathon.link, '_blank')
+                    }}
                     className="w-full"
                   >
                     {t.viewDetails}
@@ -201,15 +197,4 @@ export default function HackathonGrid() {
   )
 }
 
-function HackathonSkeleton() {
-  return (
-    <div className="space-y-3">
-      <div className="aspect-video bg-muted rounded-lg animate-pulse" />
-      <div className="h-4 bg-muted rounded w-3/4 animate-pulse" />
-      <div className="h-3 bg-muted rounded w-1/2 animate-pulse" />
-      <div className="h-3 bg-muted rounded w-2/3 animate-pulse" />
-      <div className="h-5 w-24 bg-muted rounded animate-pulse" />
-    </div>
-  )
-}
 

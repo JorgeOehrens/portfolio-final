@@ -6,6 +6,7 @@ import { Briefcase, ExternalLink } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
 import { experiences } from '../data/experience'
+import SectionHeading from './section-heading'
 
 export default function Experience() {
   const { language } = useLanguage()
@@ -13,11 +14,9 @@ export default function Experience() {
 
   return (
     <Card className="bg-card border-border">
-      <CardContent className="p-6">
-        <h2 className="text-xl font-semibold mb-8 flex items-center gap-2">
-          <span className="text-purple-400">💼</span>
-          {t.experience}
-        </h2>
+      <CardContent className="p-6 sm:p-8">
+        <SectionHeading icon={Briefcase} title={t.experience} />
+        <div className="h-2" />
 
         {/* Timeline */}
         <div className="relative">
@@ -33,25 +32,25 @@ export default function Experience() {
                   <span
                     className={`absolute left-0 top-0 flex h-9 w-9 items-center justify-center rounded-full border-2 ${
                       isCurrent
-                        ? 'border-purple-400 bg-purple-400/15'
+                        ? 'border-primary bg-primary/15'
                         : 'border-border bg-secondary'
                     }`}
                   >
-                    <Briefcase className={`h-4 w-4 ${isCurrent ? 'text-purple-400' : 'text-muted-foreground'}`} />
+                    <Briefcase className={`h-4 w-4 ${isCurrent ? 'text-primary' : 'text-muted-foreground'}`} />
                   </span>
 
-                  <div className="rounded-xl border border-border/60 bg-secondary/40 p-4 transition-colors hover:bg-secondary/70">
+                  <div className="rounded-2xl border border-border/60 bg-secondary/40 p-4 transition-colors hover:border-primary/30 hover:bg-secondary/70">
                     <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
                       <div>
                         <div className="flex items-center gap-2 flex-wrap">
                           <h3 className="font-semibold">{exp.role}</h3>
                           {isCurrent && (
-                            <Badge className="bg-purple-400/15 text-purple-300 border-purple-400/30 text-[10px] px-2 py-0">
-                              Actual
+                            <Badge className="bg-primary/15 text-primary border-primary/30 text-[10px] px-2 py-0">
+                              {t.current}
                             </Badge>
                           )}
                         </div>
-                        <p className="text-sm text-purple-400 flex items-center gap-1">
+                        <p className="text-sm text-primary flex items-center gap-1 flex-wrap">
                           {exp.link ? (
                             <a
                               href={exp.link}
@@ -70,7 +69,7 @@ export default function Experience() {
                           )}
                         </p>
                       </div>
-                      <span className="text-xs text-muted-foreground whitespace-nowrap shrink-0 sm:mt-1">
+                      <span className="text-xs text-muted-foreground shrink-0 sm:mt-1 sm:whitespace-nowrap">
                         {exp.period}
                       </span>
                     </div>
@@ -80,7 +79,7 @@ export default function Experience() {
                     <ul className="mt-3 space-y-1.5">
                       {exp.highlights.map((h, i) => (
                         <li key={i} className="text-sm text-muted-foreground flex gap-2">
-                          <span className="text-purple-400 mt-0.5">▹</span>
+                          <span className="text-primary mt-0.5">▹</span>
                           <span>{h}</span>
                         </li>
                       ))}

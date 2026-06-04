@@ -1,28 +1,34 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Card, CardContent } from "@/app/components/ui/card"
 import { Button } from "@/app/components/ui/button"
 import Image from 'next/image'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/app/components/ui/dialog"
 import { Badge } from "@/app/components/ui/badge"
 import { motion, AnimatePresence } from 'framer-motion'
-import { Github, Smartphone } from 'lucide-react'
+import { Github, Smartphone, FolderGit2, PlayCircle } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
 import { projects, type Project } from '../data/projects'
+import SectionHeading from './section-heading'
+import posthog from 'posthog-js'
+
+type Filter = 'all' | 'web' | 'app' | 'blockchain' | 'data'
+
+const FILTERS: { key: Filter; labelKey: 'all' | 'web' | 'apps' | 'blockchain' | 'dataFilter' }[] = [
+  { key: 'all', labelKey: 'all' },
+  { key: 'web', labelKey: 'web' },
+  { key: 'app', labelKey: 'apps' },
+  { key: 'blockchain', labelKey: 'blockchain' },
+  { key: 'data', labelKey: 'dataFilter' },
+]
 
 export default function ProjectGrid() {
-  const [filter, setFilter] = useState<'all' | 'web' | 'app' | 'blockchain'>('all')
+  const [filter, setFilter] = useState<Filter>('all')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
-  const [isLoading, setIsLoading] = useState(true)
   const { language } = useLanguage()
   const t = translations[language]
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1500)
-    return () => clearTimeout(timer)
-  }, [])
 
   const filteredProjects = projects
     .filter(
@@ -41,47 +47,24 @@ export default function ProjectGrid() {
   return (
     <Card className="bg-card border-border">
       <CardContent className="p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold flex items-center gap-2">
-            <span className="text-purple-400">💼</span>
-            {t.projectsTitle}
-          </h2>
-          <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
-  <Button
-    variant={filter === 'all' ? "default" : "outline"}
-    size="sm"
-    onClick={() => setFilter('all')}
-    className="min-w-[100px] text-center"
-  >
-    {t.all}
-  </Button>
-  <Button
-    variant={filter === 'web' ? "default" : "outline"}
-    size="sm"
-    onClick={() => setFilter('web')}
-    className="min-w-[100px] text-center"
-  >
-    {t.web}
-  </Button>
-  <Button
-    variant={filter === 'app' ? "default" : "outline"}
-    size="sm"
-    onClick={() => setFilter('app')}
-    className="min-w-[100px] text-center"
-  >
-    {t.apps}
-  </Button>
-  <Button
-    variant={filter === 'blockchain' ? "default" : "outline"}
-    size="sm"
-    onClick={() => setFilter('blockchain')}
-    className="min-w-[100px] text-center"
-  >
-    {t.blockchain}
-  </Button>
-</div>
-
-        </div>
+        <SectionHeading
+          icon={FolderGit2}
+          title={t.projectsTitle}
+          action={
+            <div className="flex flex-wrap justify-end gap-2">
+              {FILTERS.map(({ key, labelKey }) => (
+                <Button
+                  key={key}
+                  variant={filter === key ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => { posthog.capture('project_filter_changed', { filter: key }); setFilter(key) }}
+                >
+                  {t[labelKey]}
+                </Button>
+              ))}
+            </div>
+          }
+        />
 
         <AnimatePresence>
           <motion.div 
@@ -90,35 +73,34 @@ export default function ProjectGrid() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            {isLoading
-              ? Array(6).fill(0).map((_, index) => (
-                  <ProjectSkeleton key={index} />
-                ))
-              : filteredProjects.map((project) => (
+            {filteredProjects.map((project) => (
                   <motion.div
                     key={project.id}
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="group cursor-pointer"
-                    onClick={() => setSelectedProject(project)}
+                    className="group cursor-pointer rounded-2xl border border-border/60 bg-secondary/30 p-3 transition-all hover:border-primary/40 hover:bg-secondary/60"
+                    onClick={() => {
+                      posthog.capture('project_clicked', { project_title: project.title, project_category: project.category })
+                      setSelectedProject(project)
+                    }}
                   >
-                    <div className="relative aspect-video overflow-hidden rounded-lg mb-3">
+                    <div className="relative mb-3 aspect-video overflow-hidden rounded-xl">
                       <Image
                         src={project.image}
                         alt={project.title}
                         fill
-                        className="object-cover transition-transform group-hover:scale-105"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                       {project.video && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity">
-                          <span className="text-white text-4xl">▶️</span>
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity group-hover:opacity-100">
+                          <PlayCircle className="h-12 w-12 text-white" strokeWidth={1.5} />
                         </div>
                       )}
                     </div>
-                    <h3 className="font-semibold mb-1">{project.title}</h3>
-                    <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
+                    <h3 className="mb-1 font-semibold">{project.title}</h3>
+                    <p className="mb-3 line-clamp-2 text-sm text-muted-foreground">
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
@@ -174,7 +156,10 @@ export default function ProjectGrid() {
                 <div className="flex flex-col gap-2">
                   {selectedProject.link && (
                     <Button
-                      onClick={() => window.open(selectedProject.link, '_blank')}
+                      onClick={() => {
+                        posthog.capture('project_link_opened', { project_title: selectedProject.title, link_type: 'live' })
+                        window.open(selectedProject.link, '_blank')
+                      }}
                       className="w-full"
                     >
                       {t.viewProject}
@@ -183,7 +168,10 @@ export default function ProjectGrid() {
                   {selectedProject.github && (
                     <Button
                       variant="outline"
-                      onClick={() => window.open(selectedProject.github, '_blank')}
+                      onClick={() => {
+                        posthog.capture('project_link_opened', { project_title: selectedProject.title, link_type: 'github' })
+                        window.open(selectedProject.github, '_blank')
+                      }}
                       className="w-full gap-2"
                     >
                       <Github className="h-4 w-4" />
@@ -193,7 +181,10 @@ export default function ProjectGrid() {
                   {selectedProject.appStore && (
                     <Button
                       variant="outline"
-                      onClick={() => window.open(selectedProject.appStore, '_blank')}
+                      onClick={() => {
+                        posthog.capture('project_link_opened', { project_title: selectedProject.title, link_type: 'app_store' })
+                        window.open(selectedProject.appStore, '_blank')
+                      }}
                       className="w-full gap-2"
                     >
                       <Smartphone className="h-4 w-4" />
@@ -207,21 +198,6 @@ export default function ProjectGrid() {
         </Dialog>
       </CardContent>
     </Card>
-  )
-}
-
-function ProjectSkeleton() {
-  return (
-    <div className="space-y-3">
-      <div className="aspect-video bg-muted rounded-lg animate-pulse" />
-      <div className="h-4 bg-muted rounded w-3/4 animate-pulse" />
-      <div className="h-3 bg-muted rounded w-1/2 animate-pulse" />
-      <div className="flex gap-2">
-        <div className="h-5 w-16 bg-muted rounded animate-pulse" />
-        <div className="h-5 w-16 bg-muted rounded animate-pulse" />
-        <div className="h-5 w-16 bg-muted rounded animate-pulse" />
-      </div>
-    </div>
   )
 }
 

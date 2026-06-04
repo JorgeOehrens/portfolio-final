@@ -1,53 +1,63 @@
+'use client'
+
 import { Card, CardContent } from "@/app/components/ui/card"
-import { Badge } from "@/app/components/ui/badge"
 import { MapPin, Globe2, Building2, GraduationCap } from 'lucide-react'
 import Image from 'next/image'
+import { useLanguage } from '../contexts/LanguageContext'
+import { translations } from '../utils/translations'
 
 export default function Profile() {
+  const { language } = useLanguage()
+  const t = translations[language]
+
+  const chips = [
+    { icon: MapPin, label: 'Santiago, Chile' },
+    { icon: Globe2, label: t.languages },
+    { icon: Building2, label: 'WelcomeBack' },
+    { icon: GraduationCap, label: 'Universidad Central De Chile' },
+  ]
+
   return (
-    <Card className="bg-card border-border">
-      <CardContent className="p-6">
-        <div className="flex flex-col md:flex-row gap-6">
-          <div className="relative">
+    <Card className="bg-card border-border overflow-hidden">
+      <CardContent className="p-6 sm:p-8">
+        <div className="flex flex-col gap-6 md:flex-row md:items-start">
+          <div className="relative shrink-0">
             <Image
               src="/images/logo.jpeg"
-              alt="Profile"
-              width={120}
-              height={120}
-              className="rounded-xl"
+              alt="Jorge Oehrens"
+              width={132}
+              height={132}
+              className="rounded-2xl ring-1 ring-border"
             />
-            <Badge 
-              variant="secondary" 
-              className="absolute -top-3 -right-3 bg-green-500/10 text-green-500 border-green-500/20"
-            >
-              Available To Work
-            </Badge>
           </div>
-          
+
           <div className="flex-1">
-            <h1 className="text-2xl font-bold mb-1">Jorge Oehrens Benavides</h1>
-            <p className="text-purple-400 mb-1">Software Engineer · Product Engineer</p>
-            <p className="text-sm text-muted-foreground mt-2 max-w-xl">
-              Construyo productos digitales end-to-end —backend, frontend e infraestructura— con foco en AI y en que cada entrega genere valor real. Actualmente Software Engineer en WelcomeBack y cofundador de Educari y AgroJob.
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+              </span>
+              {t.availableToWork}
+            </span>
+
+            <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
+              Jorge Oehrens Benavides
+            </h1>
+            <p className="mt-1 font-medium text-primary">Software Engineer · Product Engineer</p>
+            <p className="mt-3 max-w-xl text-balance text-sm leading-relaxed text-muted-foreground">
+              {t.profileBio}
             </p>
 
-            <div className="grid grid-cols-2 gap-y-3 mt-4">
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-foreground">Santiago, Chile</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Globe2 className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-foreground">Spanish & English</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Building2 className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-foreground">WelcomeBack · Cooking 👨‍🍳</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <GraduationCap className="h-4 w-4 text-muted-foreground" />
-                <span className="text-sm text-foreground">Universidad Central De Chile</span>
-              </div>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {chips.map(({ icon: Icon, label }) => (
+                <span
+                  key={label}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5 text-xs font-medium text-secondary-foreground"
+                >
+                  <Icon className="h-3.5 w-3.5 text-primary" />
+                  {label}
+                </span>
+              ))}
             </div>
           </div>
         </div>

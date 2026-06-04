@@ -1,19 +1,10 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from "@/app/components/theme-provider"
 import { LanguageProvider } from './contexts/LanguageContext'
 import { PostHogProvider } from './providers'
 
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
-
-const geistMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-})
+// Tipografía del sistema (San Francisco en Apple) — look Apple, minimal, sin carga de web fonts.
 
 const siteUrl = 'https://jorge5.dev'
 const title = 'Jorge Oehrens · Software Engineer & Product Engineer'
@@ -72,7 +63,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body className="font-sans antialiased">
         <PostHogProvider>
           <ThemeProvider
             attribute="class"

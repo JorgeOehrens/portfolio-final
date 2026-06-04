@@ -21,6 +21,7 @@ export default function BlogPreview() {
         <SectionHeading
           icon={Newspaper}
           title={t.blog}
+          eyebrow="04"
           action={
             <Link href="/blog">
               <Button variant="outline" size="sm">{t.viewAll}</Button>

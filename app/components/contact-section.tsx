@@ -17,7 +17,7 @@ export default function ContactSection() {
         <span className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/15 text-primary ring-1 ring-primary/25">
           <Mail className="h-6 w-6" />
         </span>
-        <h2 className="font-display text-xl font-bold tracking-tight">{t.letsWorkTogether}</h2>
+        <h2 className="font-display text-xl font-semibold tracking-[-0.02em]">{t.letsWorkTogether}</h2>
         <p className="mb-6 mt-1 text-sm text-muted-foreground">{language === 'en' ? "Let's make magic happen together!" : "¡Hagamos magia juntos!"}</p>
 
         <div className="space-y-2.5">

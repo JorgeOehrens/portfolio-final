@@ -15,8 +15,7 @@ export default function Experience() {
   return (
     <Card className="bg-card border-border">
       <CardContent className="p-6 sm:p-8">
-        <SectionHeading icon={Briefcase} title={t.experience} />
-        <div className="h-2" />
+        <SectionHeading icon={Briefcase} title={t.experience} eyebrow="01" />
 
         {/* Timeline */}
         <div className="relative">
@@ -25,7 +24,7 @@ export default function Experience() {
 
           <div className="space-y-8">
             {experiences.map((exp) => {
-              const isCurrent = /presente|present/i.test(exp.period)
+              const isCurrent = /presente|present/i.test(exp.period.es)
               return (
                 <div key={exp.id} className="relative pl-12">
                   {/* punto */}
@@ -70,17 +69,17 @@ export default function Experience() {
                         </p>
                       </div>
                       <span className="text-xs text-muted-foreground shrink-0 sm:mt-1 sm:whitespace-nowrap">
-                        {exp.period}
+                        {exp.period[language]}
                       </span>
                     </div>
 
-                    <p className="text-sm text-foreground/90 mt-3">{exp.description}</p>
+                    <p className="text-sm text-foreground/90 mt-3">{exp.description[language]}</p>
 
                     <ul className="mt-3 space-y-1.5">
                       {exp.highlights.map((h, i) => (
                         <li key={i} className="text-sm text-muted-foreground flex gap-2">
                           <span className="text-primary mt-0.5">▹</span>
-                          <span>{h}</span>
+                          <span>{h[language]}</span>
                         </li>
                       ))}
                     </ul>

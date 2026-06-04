@@ -22,7 +22,7 @@ export default function BlogPage() {
           {t.backToHome}
         </Button>
       </Link>
-      <h1 className="font-display text-3xl font-extrabold tracking-tight mb-8 sm:text-4xl">{t.blog}</h1>
+      <h1 className="font-display text-3xl font-semibold tracking-[-0.02em] mb-8 sm:text-4xl">{t.blog}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogPosts.map((post: BlogPost) => (
           <Link href={`/blog/${post.id}`} key={post.id} className="group" onClick={() => posthog.capture('blog_post_opened', { post_id: post.id, post_title: post.title })}>

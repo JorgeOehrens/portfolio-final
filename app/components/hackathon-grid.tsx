@@ -96,7 +96,7 @@ export default function HackathonGrid() {
   return (
     <Card className="bg-card border-border">
       <CardContent className="p-6">
-        <SectionHeading icon={Trophy} title={t.hackathonsTitle} />
+        <SectionHeading icon={Trophy} title={t.hackathonsTitle} eyebrow="03" />
 
         <AnimatePresence>
           <motion.div 

@@ -50,6 +50,7 @@ export default function ProjectGrid() {
         <SectionHeading
           icon={FolderGit2}
           title={t.projectsTitle}
+          eyebrow="02"
           action={
             <div className="flex flex-wrap justify-end gap-2">
               {FILTERS.map(({ key, labelKey }) => (
@@ -101,7 +102,7 @@ export default function ProjectGrid() {
                     </div>
                     <h3 className="mb-1 font-semibold">{project.title}</h3>
                     <p className="mb-3 line-clamp-2 text-sm text-muted-foreground">
-                      {project.description}
+                      {project.description[language]}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.slice(0, 3).map((tech, index) => (
@@ -144,7 +145,7 @@ export default function ProjectGrid() {
                   )}
                 </div>
                 <p className="text-muted-foreground mb-4">
-                  {selectedProject.description}
+                  {selectedProject.description[language]}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {selectedProject.technologies.map((tech, index) => (

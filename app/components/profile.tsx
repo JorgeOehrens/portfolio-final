@@ -40,10 +40,10 @@ export default function Profile() {
               {t.availableToWork}
             </span>
 
-            <h1 className="mt-3 font-display text-3xl font-extrabold tracking-tight sm:text-4xl">
+            <h1 className="mt-3 font-display text-3xl font-semibold tracking-[-0.03em] sm:text-[2.6rem] sm:leading-[1.05]">
               Jorge Oehrens Benavides
             </h1>
-            <p className="mt-1 font-medium text-primary">Software Engineer · Product Engineer</p>
+            <p className="mt-2 font-medium text-primary">Software Engineer · Product Engineer</p>
             <p className="mt-3 max-w-xl text-balance text-sm leading-relaxed text-muted-foreground">
               {t.profileBio}
             </p>

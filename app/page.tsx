@@ -8,7 +8,6 @@ import Stats from './components/stats'
 import Profile from './components/profile'
 import ProjectGrid from './components/project-grid'
 import HackathonGrid from './components/hackathon-grid'
-import LiveSessionsGrid from './components/live-sessions-grid'
 import WorkProcess from './components/work-process'
 import OnlinePresence from './components/online-presence'
 import ContactSection from './components/contact-section'
@@ -81,10 +80,6 @@ function PortfolioContent() {
 
         <motion.section id="hackathons" className="scroll-mt-24" {...reveal}>
           <HackathonGrid />
-        </motion.section>
-
-        <motion.section id="sessions" className="scroll-mt-24" {...reveal}>
-          <LiveSessionsGrid />
         </motion.section>
 
         {/* Certificados + proceso/contacto */}

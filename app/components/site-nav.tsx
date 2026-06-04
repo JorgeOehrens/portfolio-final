@@ -10,7 +10,6 @@ const SECTIONS = [
   { id: 'projects', key: 'navProjects' },
   { id: 'experience', key: 'navExperience' },
   { id: 'hackathons', key: 'navHackathons' },
-  { id: 'sessions', key: 'navSessions' },
   { id: 'blog', key: 'navBlog' },
   { id: 'contact', key: 'navContact' },
 ] as const
@@ -44,7 +43,7 @@ export default function SiteNav() {
         {/* Marca */}
         <a
           href="#top"
-          className="group flex items-center gap-2 font-display text-lg font-extrabold tracking-tight"
+          className="group flex items-center gap-2 font-display text-lg font-semibold tracking-[-0.02em]"
           aria-label="Jorge Oehrens"
         >
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">

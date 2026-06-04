@@ -21,7 +21,7 @@ export default function Stats() {
         <Card key={label} className="bg-card border-border">
           <CardContent className="flex flex-col gap-2 p-4">
             <Icon className="h-4 w-4 text-primary" />
-            <div className="font-display text-2xl font-extrabold leading-none sm:text-3xl">
+            <div className="font-display text-2xl font-semibold leading-none tracking-[-0.02em] sm:text-3xl">
               {value}
               <span className="text-primary">{suffix}</span>
             </div>

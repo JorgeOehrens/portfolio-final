@@ -1,26 +1,36 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ArrowDown, Download } from 'lucide-react'
 import posthog from 'posthog-js'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
 
 /**
- * Hero a pantalla completa estilo tsirakis: video de fondo en loop,
- * titular gigante en dos líneas y CTAs pill. Si /videos/hero.mp4 no
- * existe, queda el fondo oscuro plano (el layout no depende del video).
+ * Hero a pantalla completa estilo tsirakis: video de fondo en loop
+ * (horizontal en desktop, vertical en móvil; se elige por matchMedia
+ * para descargar solo uno), titular gigante y CTAs pill. El fondo azul
+ * calza con el estudio del video, así el load-in y un fallo son invisibles.
  */
 export default function Profile() {
   const { language } = useLanguage()
   const t = translations[language]
   const [videoFailed, setVideoFailed] = useState(false)
+  const [videoSrc, setVideoSrc] = useState<string>()
+
+  useEffect(() => {
+    setVideoSrc(
+      window.matchMedia('(max-width: 639px)').matches
+        ? '/videos/hero-mobile.mp4'
+        : '/videos/hero-desktop.mp4'
+    )
+  }, [])
 
   return (
-    <section className="relative flex h-[100svh] min-h-[560px] w-full flex-col justify-end overflow-hidden bg-[hsl(228_28%_8%)]">
-      {!videoFailed && (
+    <section className="relative flex h-[100svh] min-h-[560px] w-full flex-col justify-end overflow-hidden bg-[#2f7490]">
+      {videoSrc && !videoFailed && (
         <video
-          src="/videos/hero.mp4"
+          src={videoSrc}
           autoPlay
           loop
           muted
@@ -29,8 +39,8 @@ export default function Profile() {
           className="absolute inset-0 h-full w-full object-cover"
         />
       )}
-      {/* Oscurece el video para que el texto respire */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[hsl(228_28%_8%)] via-[hsl(228_28%_8%/0.55)] to-[hsl(228_28%_8%/0.35)]" />
+      {/* Degradado sutil solo para que el texto respire sobre el azul */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
 
       <div className="relative mx-auto w-full max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24">
         <span className="mb-6 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-white/70">
@@ -44,7 +54,7 @@ export default function Profile() {
         <h1 className="font-display text-5xl font-semibold leading-[1.02] tracking-[-0.03em] text-white sm:text-7xl lg:text-8xl">
           Jorge Oehrens.
           <br />
-          <span className="text-white/45">Software Engineer &amp; Product Engineer.</span>
+          <span className="text-white/55">Software Engineer &amp; Product Engineer.</span>
         </h1>
 
         <p className="mt-6 max-w-xl text-balance text-base leading-relaxed text-white/70 sm:text-lg">

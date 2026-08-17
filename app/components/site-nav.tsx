@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import posthog from 'posthog-js'
 import { ThemeToggle } from './theme-toggle'
 import { useLanguage } from '../contexts/LanguageContext'
@@ -11,20 +10,12 @@ const SECTIONS = [
   { id: 'experience', key: 'navExperience' },
   { id: 'hackathons', key: 'navHackathons' },
   { id: 'blog', key: 'navBlog' },
-  { id: 'contact', key: 'navContact' },
+  { id: 'about', key: 'navAbout' },
 ] as const
 
 export default function SiteNav() {
   const { language, setLanguage } = useLanguage()
   const t = translations[language]
-  const [scrolled, setScrolled] = useState(false)
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   const switchLanguage = (lang: 'es' | 'en') => {
     posthog.capture('language_switched', { language: lang, previous_language: language })
@@ -32,24 +23,16 @@ export default function SiteNav() {
   }
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-colors duration-300 ${
-        scrolled
-          ? 'border-b border-border bg-background/80 backdrop-blur-xl'
-          : 'border-b border-transparent bg-transparent'
-      }`}
-    >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+    <header className="fixed inset-x-0 top-0 z-50 flex justify-center px-4 pt-4">
+      <nav className="flex w-full max-w-5xl items-center justify-between gap-2 rounded-full border border-border bg-background/70 py-2 pl-5 pr-2 shadow-lg shadow-black/5 backdrop-blur-xl">
         {/* Marca */}
         <a
           href="#top"
-          className="group flex items-center gap-2 font-display text-lg font-semibold tracking-[-0.02em]"
+          className="flex items-center gap-1.5 font-display text-lg font-semibold tracking-[-0.02em]"
           aria-label="Jorge Oehrens"
         >
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            JO
-          </span>
-          <span className="hidden sm:inline">Jorge Oehrens</span>
+          <span aria-hidden>✦</span>
+          Jorge.
         </a>
 
         {/* Anclas (desktop) */}
@@ -68,13 +51,13 @@ export default function SiteNav() {
         </ul>
 
         {/* Controles */}
-        <div className="flex items-center gap-2">
-          <div className="flex items-center rounded-full border border-border bg-secondary/50 p-0.5">
+        <div className="flex items-center gap-1.5">
+          <div className="flex items-center rounded-full border border-border p-0.5">
             <button
               onClick={() => switchLanguage('es')}
               aria-label="Cambiar a Español"
               className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
-                language === 'es' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
+                language === 'es' ? 'bg-foreground text-background' : 'text-muted-foreground hover:text-foreground'
               }`}
             >
               ES
@@ -83,13 +66,20 @@ export default function SiteNav() {
               onClick={() => switchLanguage('en')}
               aria-label="Switch to English"
               className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
-                language === 'en' ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'
+                language === 'en' ? 'bg-foreground text-background' : 'text-muted-foreground hover:text-foreground'
               }`}
             >
               EN
             </button>
           </div>
           <ThemeToggle />
+          <a
+            href="#contact"
+            onClick={() => posthog.capture('nav_section_clicked', { section: 'contact', location: 'nav' })}
+            className="hidden items-center rounded-full border border-border px-4 py-1.5 text-sm font-medium transition-colors hover:bg-secondary sm:inline-flex"
+          >
+            {t.sayHi}
+          </a>
         </div>
       </nav>
     </header>

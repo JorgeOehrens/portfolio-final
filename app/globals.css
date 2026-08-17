@@ -4,75 +4,73 @@
 
 @layer base {
   :root {
-    /* WebVitae "paper" — fondo blanco, tinta near-black, acento cian sólido */
+    /* Light: papel blanco, tinta near-black, primario monocromo */
     --background: 0 0% 100%;
-    --foreground: 220 13% 5%;
+    --foreground: 228 25% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 13% 5%;
+    --card-foreground: 228 25% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 5%;
+    --popover-foreground: 228 25% 8%;
 
-    /* primary = cian de marca (#16c2ce) */
-    --primary: 184 81% 45%;
-    --primary-foreground: 220 13% 5%;
+    --primary: 228 25% 10%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 20% 97%;
-    --secondary-foreground: 220 13% 12%;
+    --secondary: 228 20% 96%;
+    --secondary-foreground: 228 20% 14%;
 
-    --muted: 220 20% 97%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 228 20% 96%;
+    --muted-foreground: 226 10% 44%;
 
-    --accent: 220 20% 95%;
-    --accent-foreground: 220 13% 12%;
+    --accent: 228 20% 94%;
+    --accent-foreground: 228 20% 14%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 14% 90%;
-    --input: 220 14% 90%;
-    --ring: 184 81% 45%;
+    --border: 228 14% 89%;
+    --input: 228 14% 89%;
+    --ring: 228 25% 10%;
 
     --radius: 1rem;
 
-    /* acento de marca (alias de cian) */
-    --brand: 184 81% 45%;
-    --brand-foreground: 220 13% 5%;
+    --brand: 228 25% 10%;
+    --brand-foreground: 0 0% 100%;
   }
 
   .dark {
-    /* WebVitae dark — base #0a0b0d con superficies en capas */
-    --background: 220 16% 5%;
-    --foreground: 210 20% 95%;
+    /* Dark: azul marino casi negro (ref. oklch(0.14 0.02 250)), monocromo */
+    --background: 228 28% 8%;
+    --foreground: 220 25% 96%;
 
-    --card: 222 16% 10%;
-    --card-foreground: 210 20% 95%;
+    --card: 228 24% 11%;
+    --card-foreground: 220 25% 96%;
 
-    --popover: 222 16% 10%;
-    --popover-foreground: 210 20% 95%;
+    --popover: 228 24% 11%;
+    --popover-foreground: 220 25% 96%;
 
-    --primary: 184 78% 48%;
-    --primary-foreground: 220 16% 5%;
+    --primary: 220 25% 96%;
+    --primary-foreground: 228 28% 8%;
 
-    --secondary: 222 16% 13%;
-    --secondary-foreground: 210 20% 95%;
+    --secondary: 228 20% 14%;
+    --secondary-foreground: 220 25% 96%;
 
-    --muted: 222 16% 13%;
-    --muted-foreground: 218 9% 62%;
+    --muted: 228 20% 14%;
+    --muted-foreground: 225 12% 62%;
 
-    --accent: 222 16% 16%;
-    --accent-foreground: 184 78% 52%;
+    --accent: 228 18% 18%;
+    --accent-foreground: 220 25% 96%;
 
     --destructive: 0 62% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 12% 18%;
-    --input: 220 12% 18%;
-    --ring: 184 78% 48%;
+    --border: 228 15% 18%;
+    --input: 228 15% 18%;
+    --ring: 220 25% 96%;
 
-    --brand: 184 78% 50%;
-    --brand-foreground: 220 16% 5%;
+    --brand: 220 25% 96%;
+    --brand-foreground: 228 28% 8%;
   }
 }
 
@@ -82,22 +80,16 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
-      "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 }
 
 @layer utilities {
-  /* Atmósfera: halo de marca muy sutil detrás del hero */
-  .bg-hero-glow {
-    background-image: radial-gradient(
-      60rem 28rem at 50% -10rem,
-      hsl(var(--brand) / 0.06),
-      transparent 70%
-    );
-  }
   .text-balance {
     text-wrap: balance;
+  }
+  /* Eyebrow mono uppercase estilo referencia */
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground;
   }
 }

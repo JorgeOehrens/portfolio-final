@@ -1,13 +1,11 @@
 "use client"
 
 import { useState } from 'react'
-import { Card, CardContent } from "@/app/components/ui/card"
 import { Button } from "@/app/components/ui/button"
 import { Badge } from "@/app/components/ui/badge"
-import { GraduationCap, ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
-import SectionHeading from './section-heading'
 
 const degrees = [
   {
@@ -30,26 +28,23 @@ export default function DegreesViewer() {
   const t = translations[language]
 
   return (
-    <Card className="bg-card border-border">
-      <CardContent className="p-6">
-        <SectionHeading
-          icon={GraduationCap}
-          title={t.academicDegrees}
-          action={
-            <div className="flex flex-wrap justify-end gap-2">
-              {degrees.map((degree, index) => (
-                <Button
-                  key={index}
-                  variant={selectedDegree === degree ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedDegree(degree)}
-                >
-                  {degree.year}
-                </Button>
-              ))}
-            </div>
-          }
-        />
+    <div className="rounded-3xl border border-border bg-card p-6">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">{t.academicDegrees}</h3>
+          <div className="flex flex-wrap justify-end gap-2">
+            {degrees.map((degree, index) => (
+              <Button
+                key={index}
+                variant={selectedDegree === degree ? "default" : "outline"}
+                size="sm"
+                className="rounded-full"
+                onClick={() => setSelectedDegree(degree)}
+              >
+                {degree.year}
+              </Button>
+            ))}
+          </div>
+        </div>
 
         {/* Iframe para visualizar PDFs */}
         <div className="overflow-hidden rounded-xl border border-border bg-muted">
@@ -81,7 +76,6 @@ export default function DegreesViewer() {
             <Badge variant="secondary">{selectedDegree.year}</Badge>
           </div>
         </div>
-      </CardContent>
-    </Card>
+    </div>
   )
 }

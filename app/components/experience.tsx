@@ -1,8 +1,7 @@
 'use client'
 
-import { Card, CardContent } from "@/app/components/ui/card"
 import { Badge } from "@/app/components/ui/badge"
-import { Briefcase, ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
 import { experiences } from '../data/experience'
@@ -13,89 +12,71 @@ export default function Experience() {
   const t = translations[language]
 
   return (
-    <Card className="bg-card border-border">
-      <CardContent className="p-6 sm:p-8">
-        <SectionHeading icon={Briefcase} title={t.experience} eyebrow="01" />
+    <div>
+      <SectionHeading eyebrow="EXPERIENCE" title={t.experience} subtitle={t.experienceSub} />
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* línea vertical */}
-          <div className="absolute left-[18px] top-2 bottom-2 w-px bg-border" aria-hidden />
-
-          <div className="space-y-8">
-            {experiences.map((exp) => {
-              const isCurrent = /presente|present/i.test(exp.period.es)
-              return (
-                <div key={exp.id} className="relative pl-12">
-                  {/* punto */}
-                  <span
-                    className={`absolute left-0 top-0 flex h-9 w-9 items-center justify-center rounded-full border-2 ${
-                      isCurrent
-                        ? 'border-primary bg-primary/15'
-                        : 'border-border bg-secondary'
-                    }`}
-                  >
-                    <Briefcase className={`h-4 w-4 ${isCurrent ? 'text-primary' : 'text-muted-foreground'}`} />
+      <div className="divide-y divide-border">
+        {experiences.map((exp) => {
+          const isCurrent = /presente|present/i.test(exp.period.es)
+          return (
+            <div key={exp.id} className="grid grid-cols-1 gap-4 py-10 first:pt-0 sm:grid-cols-[220px,1fr] sm:gap-10">
+              {/* Meta a la izquierda */}
+              <div className="eyebrow leading-relaxed">
+                <p>{exp.period[language]}</p>
+                {exp.location && <p className="mt-1">{exp.location}</p>}
+                {isCurrent && (
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-emerald-500 dark:text-emerald-400">
+                    <span className="h-1.5 w-1.5 rounded-full bg-current" />
+                    {t.current}
                   </span>
+                )}
+              </div>
 
-                  <div className="rounded-2xl border border-border/60 bg-secondary/40 p-4 transition-colors hover:border-primary/30 hover:bg-secondary/70">
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1">
-                      <div>
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <h3 className="font-semibold">{exp.role}</h3>
-                          {isCurrent && (
-                            <Badge className="bg-primary/15 text-primary border-primary/30 text-[10px] px-2 py-0">
-                              {t.current}
-                            </Badge>
-                          )}
-                        </div>
-                        <p className="text-sm text-primary flex items-center gap-1 flex-wrap">
-                          {exp.link ? (
-                            <a
-                              href={exp.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="hover:underline inline-flex items-center gap-1"
-                            >
-                              {exp.company}
-                              <ExternalLink className="h-3 w-3" />
-                            </a>
-                          ) : (
-                            exp.company
-                          )}
-                          {exp.location && (
-                            <span className="text-muted-foreground">· {exp.location}</span>
-                          )}
-                        </p>
-                      </div>
-                      <span className="text-xs text-muted-foreground shrink-0 sm:mt-1 sm:whitespace-nowrap">
-                        {exp.period[language]}
-                      </span>
-                    </div>
+              <div>
+                <h3 className="font-display text-2xl font-semibold tracking-[-0.02em] sm:text-3xl">
+                  {exp.role}
+                </h3>
+                <p className="mt-1 text-base text-muted-foreground">
+                  {exp.link ? (
+                    <a
+                      href={exp.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-foreground hover:underline"
+                    >
+                      {exp.company}
+                      <ExternalLink className="h-3.5 w-3.5" />
+                    </a>
+                  ) : (
+                    <span className="text-foreground">{exp.company}</span>
+                  )}
+                </p>
 
-                    <p className="text-sm text-foreground/90 mt-3">{exp.description[language]}</p>
+                <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                  {exp.description[language]}
+                </p>
 
-                    <ul className="mt-3 space-y-1.5">
-                      {exp.highlights.map((h, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex gap-2">
-                          <span className="text-primary mt-0.5">▹</span>
-                          <span>{h[language]}</span>
-                        </li>
-                      ))}
-                    </ul>
+                <ul className="mt-4 space-y-2">
+                  {exp.highlights.map((h, i) => (
+                    <li key={i} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
+                      <span className="mt-0.5 text-foreground/50">—</span>
+                      <span>{h[language]}</span>
+                    </li>
+                  ))}
+                </ul>
 
-                    <div className="flex flex-wrap gap-1.5 mt-4">
-                      {exp.stack.map((tech, i) => (
-                        <Badge key={i} variant="secondary" className="text-xs">{tech}</Badge>
-                      ))}
-                    </div>
-                  </div>
+                <div className="mt-5 flex flex-wrap gap-1.5">
+                  {exp.stack.map((tech, i) => (
+                    <Badge key={i} variant="outline" className="rounded-full font-mono text-xs font-normal">
+                      {tech}
+                    </Badge>
+                  ))}
                 </div>
-              )
-            })}
-          </div>
-        </div>
-      </CardContent>
-    </Card>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </div>
   )
 }

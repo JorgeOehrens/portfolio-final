@@ -5,7 +5,6 @@ import { translations } from '../utils/translations'
 import { blogPosts, type BlogPost } from '@/app/data/posts'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Badge } from "@/app/components/ui/badge"
 import { Button } from "@/app/components/ui/button"
 import { ArrowLeft } from 'lucide-react'
 import posthog from 'posthog-js'
@@ -15,46 +14,41 @@ export default function BlogPage() {
   const t = translations[language]
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6">
       <Link href="/">
-        <Button variant="ghost" className="mb-4">
+        <Button variant="ghost" className="mb-6 rounded-full">
           <ArrowLeft className="mr-2 h-4 w-4" />
           {t.backToHome}
         </Button>
       </Link>
-      <h1 className="font-display text-3xl font-semibold tracking-[-0.02em] mb-8 sm:text-4xl">{t.blog}</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <p className="eyebrow mb-3">BLOG</p>
+      <h1 className="mb-4 font-display text-4xl font-semibold tracking-[-0.03em] sm:text-6xl">{t.blog}</h1>
+      <p className="mb-12 max-w-md text-muted-foreground">{t.blogSub}</p>
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
         {blogPosts.map((post: BlogPost) => (
-          <Link href={`/blog/${post.id}`} key={post.id} className="group" onClick={() => posthog.capture('blog_post_opened', { post_id: post.id, post_title: post.title })}>
-            <div className="overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/40 hover:shadow-lg">
-              <div className="aspect-video overflow-hidden">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  width={400}
-                  height={225}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <h2 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">{post.title}</h2>
-                <p className="text-muted-foreground mb-4">{post.excerpt}</p>
-                <div className="flex justify-between items-center">
-                  <span className="text-sm text-muted-foreground">
-                    {new Date(post.date).toLocaleDateString(language === 'en' ? 'en-US' : 'es-ES')}
-                  </span>
-                  <div className="flex gap-2">
-                    {post.tags.map((tag, index) => (
-                      <Badge key={index} variant="secondary">{tag}</Badge>
-                    ))}
-                  </div>
-                </div>
-              </div>
+          <Link
+            href={`/blog/${post.id}`}
+            key={post.id}
+            className="group"
+            onClick={() => posthog.capture('blog_post_opened', { post_id: post.id, post_title: post.title })}
+          >
+            <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-secondary/50">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              />
             </div>
+            <p className="eyebrow mt-4">
+              {new Date(post.date).toLocaleDateString(language === 'en' ? 'en-US' : 'es-ES')}
+              {post.tags[0] ? ` · ${post.tags.join(', ')}` : ''}
+            </p>
+            <h2 className="mt-1.5 font-display text-xl font-semibold tracking-[-0.01em]">{post.title}</h2>
+            <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
           </Link>
         ))}
       </div>
     </div>
   )
 }
-

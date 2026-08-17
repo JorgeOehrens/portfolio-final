@@ -1,13 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { Card, CardContent } from "@/app/components/ui/card"
 import { Button } from "@/app/components/ui/button"
 import Image from 'next/image'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/app/components/ui/dialog"
 import { Badge } from "@/app/components/ui/badge"
 import { motion, AnimatePresence } from 'framer-motion'
-import { Trophy } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
 import SectionHeading from './section-heading'
@@ -94,50 +92,53 @@ export default function HackathonGrid() {
   }
 
   return (
-    <Card className="bg-card border-border">
-      <CardContent className="p-6">
-        <SectionHeading icon={Trophy} title={t.hackathonsTitle} eyebrow="03" />
+    <div>
+      <SectionHeading eyebrow="HACKATHONS" title={t.hackathonsTitle} subtitle={t.hackathonsSub} />
 
-        <AnimatePresence>
-          <motion.div 
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            {hackathons.map((hackathon) => (
-                  <motion.div
-                    key={hackathon.id}
-                    layout
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="group cursor-pointer rounded-2xl border border-border/60 bg-secondary/30 p-3 transition-all hover:border-primary/40 hover:bg-secondary/60"
-                    onClick={() => {
-                      posthog.capture('hackathon_clicked', { hackathon_name: hackathon.name, achievement: hackathon.achievement })
-                      setSelectedHackathon(hackathon)
-                    }}
-                  >
-                    <div className="relative mb-3 aspect-video overflow-hidden rounded-xl">
-                      <Image
-                        src={hackathon.image}
-                        alt={hackathon.name}
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                    <h3 className="mb-1 font-semibold">{hackathon.name}</h3>
-                    <p className="mb-2 text-sm text-muted-foreground">{hackathon.date}</p>
-                    <p className="mb-2 line-clamp-2 text-sm">{hackathon.project}</p>
-                    {hackathon.achievement && (
-                      <Badge variant="secondary" className="mb-2">
-                        {hackathon.achievement}
-                      </Badge>
-                    )}
-                  </motion.div>
-                ))}
-          </motion.div>
-        </AnimatePresence>
+      <AnimatePresence>
+        <motion.div
+          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          {hackathons.map((hackathon) => (
+            <motion.button
+              key={hackathon.id}
+              layout
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="group block text-left"
+              onClick={() => {
+                posthog.capture('hackathon_clicked', { hackathon_name: hackathon.name, achievement: hackathon.achievement })
+                setSelectedHackathon(hackathon)
+              }}
+            >
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-secondary/50">
+                <Image
+                  src={hackathon.image}
+                  alt={hackathon.name}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+                {hackathon.achievement && (
+                  <Badge className="absolute left-3 top-3 border-0 bg-black/60 font-mono text-[10px] uppercase tracking-wider text-white backdrop-blur">
+                    {hackathon.achievement}
+                  </Badge>
+                )}
+              </div>
+              <p className="eyebrow mt-4">{hackathon.date} · {hackathon.project}</p>
+              <h3 className="mt-1.5 font-display text-lg font-semibold tracking-[-0.01em]">
+                {hackathon.name}
+              </h3>
+              <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+                {hackathon.description}
+              </p>
+            </motion.button>
+          ))}
+        </motion.div>
+      </AnimatePresence>
 
         <Dialog open={!!selectedHackathon} onOpenChange={() => setSelectedHackathon(null)}>
           {selectedHackathon && (
@@ -183,7 +184,7 @@ export default function HackathonGrid() {
                       posthog.capture('hackathon_link_opened', { hackathon_name: selectedHackathon.name })
                       window.open(selectedHackathon.link, '_blank')
                     }}
-                    className="w-full"
+                    className="w-full rounded-full"
                   >
                     {t.viewDetails}
                   </Button>
@@ -192,8 +193,7 @@ export default function HackathonGrid() {
             </DialogContent>
           )}
         </Dialog>
-      </CardContent>
-    </Card>
+    </div>
   )
 }
 

@@ -1,13 +1,11 @@
 "use client"
 
 import { useState } from 'react'
-import { Card, CardContent } from "@/app/components/ui/card"
 import { Button } from "@/app/components/ui/button"
 import { Badge } from "@/app/components/ui/badge"
-import { Award, ExternalLink } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
-import SectionHeading from './section-heading'
 import posthog from 'posthog-js'
 
 const certificates = [
@@ -31,29 +29,26 @@ export default function CertificatesViewer() {
   const t = translations[language]
 
   return (
-    <Card className="bg-card border-border">
-      <CardContent className="p-6">
-        <SectionHeading
-          icon={Award}
-          title={t.certificatesTitle}
-          action={
-            <div className="flex flex-wrap justify-end gap-2">
-              {certificates.map((cert, index) => (
-                <Button
-                  key={index}
-                  variant={selectedCert === cert ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => {
-                    posthog.capture('certificate_viewed', { certificate_title: cert.title, issuer: cert.issuer })
-                    setSelectedCert(cert)
-                  }}
-                >
-                  {cert.issuer}
-                </Button>
-              ))}
-            </div>
-          }
-        />
+    <div className="rounded-3xl border border-border bg-card p-6">
+        <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+          <h3 className="font-display text-2xl font-semibold tracking-[-0.02em]">{t.certificatesTitle}</h3>
+          <div className="flex flex-wrap justify-end gap-2">
+            {certificates.map((cert, index) => (
+              <Button
+                key={index}
+                variant={selectedCert === cert ? "default" : "outline"}
+                size="sm"
+                className="rounded-full"
+                onClick={() => {
+                  posthog.capture('certificate_viewed', { certificate_title: cert.title, issuer: cert.issuer })
+                  setSelectedCert(cert)
+                }}
+              >
+                {cert.issuer}
+              </Button>
+            ))}
+          </div>
+        </div>
 
         <div className="overflow-hidden rounded-xl border border-border bg-muted">
           <iframe
@@ -81,8 +76,7 @@ export default function CertificatesViewer() {
             <Badge variant="secondary">{selectedCert.date}</Badge>
           </div>
         </div>
-      </CardContent>
-    </Card>
+    </div>
   )
 }
 

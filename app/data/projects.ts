@@ -20,11 +20,14 @@ export type Project = {
   mobileImage?: string
   /** Identificador kebab-case usado por el script de capturas para nombrar el PNG. */
   slug?: string
+  /** Se muestra como card grande tipo case-study en "Selected work". */
+  featured?: boolean
 }
 
 export const projects: Project[] = [
   {
     id: 1,
+    featured: true,
     title: "NASA Space Apps Challenge",
     description: {
       es: "Localización de exoplanetas con un chatbot de IA al que puedes hacerle preguntas, desarrollado durante el NASA Space Apps Challenge.",
@@ -85,6 +88,7 @@ export const projects: Project[] = [
   },
   {
     id: 6,
+    featured: true,
     title: "Canasta Ahorro",
     description: {
       es: "Plataforma de e-commerce respaldada por Cencosud Ventures.",
@@ -97,6 +101,7 @@ export const projects: Project[] = [
   },
   {
     id: 7,
+    featured: true,
     title: "Soroban Vitae",
     description: {
       es: "Creación de CV en la blockchain de Stellar.",
@@ -110,6 +115,7 @@ export const projects: Project[] = [
   },
   {
     id: 8,
+    featured: true,
     title: "Stone Chile",
     description: {
       es: "🔹Calculadora de cajas por m² 🔹Categorías de producto 🔹Fichas técnicas 🔹E-commerce 🔹Integración Transbank 🔹Transferencia bancaria 🔹Tipos de envío (retiro local y 7 días hábiles)",
@@ -160,6 +166,7 @@ export const projects: Project[] = [
   },
   {
     id: 12,
+    featured: true,
     title: "Educari",
     description: {
       es: "Plataforma educativa con IA para estudiantes chilenos: microclases interactivas, simulación de ensayos y feedback al instante, desde 5° básico hasta II medio con preparación PAES.",
@@ -275,6 +282,7 @@ export const projects: Project[] = [
   },
   {
     id: 21,
+    featured: true,
     title: "OnNet Fibra · Plataforma Big Data",
     description: {
       es: "Plataforma de datos en Azure para una red de fibra óptica. Ingiere potencias de OLT/ONT y fibra óptica más plataformas operacionales (factibilidad, cierres, construcciones, alarmas) mediante Azure Data Factory, cola Kafka y notebooks, bajo una arquitectura de datos medallón (Bronze/Silver/Gold) procesada en Databricks (PySpark). Pipeline de históricos + incrementales programados por minutos, horas y días, con entregables en dashboards de Databricks, Power BI y archivos Excel. Optimización de costos cloud de ~20%.",

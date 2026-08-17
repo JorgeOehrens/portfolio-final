@@ -1,10 +1,14 @@
 import type { Metadata } from 'next'
+import { Bricolage_Grotesque, Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 import { ThemeProvider } from "@/app/components/theme-provider"
 import { LanguageProvider } from './contexts/LanguageContext'
 import { PostHogProvider } from './providers'
 
-// Tipografía del sistema (San Francisco en Apple) — look Apple, minimal, sin carga de web fonts.
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
+const bricolage = Bricolage_Grotesque({ subsets: ['latin'], variable: '--font-display' })
+const geistMono = localFont({ src: './fonts/GeistMonoVF.woff', variable: '--font-mono' })
 
 const siteUrl = 'https://jorge5.dev'
 const title = 'Jorge Oehrens · Software Engineer & Product Engineer'
@@ -62,13 +66,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="es"
+      suppressHydrationWarning
+      className={`${inter.variable} ${bricolage.variable} ${geistMono.variable}`}
+    >
       <body className="font-sans antialiased">
         <PostHogProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="light"
-            enableSystem
+            defaultTheme="dark"
+            enableSystem={false}
             disableTransitionOnChange
           >
             <LanguageProvider>

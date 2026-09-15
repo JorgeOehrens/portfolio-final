@@ -54,7 +54,7 @@ export default function Profile() {
         <h1 className="font-display text-5xl font-semibold leading-[1.02] tracking-[-0.03em] text-white sm:text-7xl lg:text-8xl">
           Jorge Oehrens.
           <br />
-          <span className="text-white/55">Software Engineer &amp; Product Engineer.</span>
+          <span className="text-white/55">Software Engineer · Product &amp; Infrastructure.</span>
         </h1>
 
         <p className="mt-6 max-w-xl text-balance text-base leading-relaxed text-white/70 sm:text-lg">

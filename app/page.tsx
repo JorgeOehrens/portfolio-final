@@ -93,7 +93,7 @@ export default function Portfolio() {
                 />
                 <h2 className="font-display text-2xl font-semibold leading-snug tracking-[-0.02em] sm:text-3xl">
                   Jorge Oehrens Benavides
-                  <span className="block text-muted-foreground">Software Engineer · Product Engineer</span>
+                  <span className="block text-muted-foreground">Software Engineer · Product & Infrastructure</span>
                 </h2>
               </div>
               <p className="mt-6 max-w-2xl text-balance text-base leading-relaxed text-muted-foreground sm:text-lg">

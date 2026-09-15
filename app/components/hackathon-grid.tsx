@@ -25,6 +25,16 @@ type Hackathon = {
 
 const hackathons: Hackathon[] = [
   {
+    id: 6,
+    name: "Welcome Back Week",
+    description: "Hackathon interna en Maitencillo: construimos \"Onboarding en 1 click\", un producto de IA que reduce el alta de un restaurante de cuatro reuniones a un solo clic. De la idea a algo usable en 48 horas.",
+    date: "Enero 2026",
+    image: "/blog/hackathon.jpeg",
+    project: "Onboarding en 1 click",
+    achievement: "1er lugar",
+    technologies: ['Claude (Anthropic)', 'AWS Bedrock', 'NestJS', 'Next.js', 'TypeScript'],
+  },
+  {
     id: 5,
     name: "Platanus Hack",
     description: "En el track de Human Enhancement construimos un sistema de visualización asistida para personas con discapacidad visual: una app que guía con vibraciones y describe en tiempo real lo que ve la cámara (detección de obstáculos, pasos peatonales y orientación).",

@@ -23,24 +23,24 @@ export const experiences: Experience[] = [
     location: "Santiago, Chile",
     period: { es: "dic 2025 — Presente", en: "Dec 2025 — Present" },
     description: {
-      es: "Ingeniero de software en el ciclo completo de features —de la idea a producción— trabajando en backend y frontend, con foco en que cada entrega tenga impacto real en el producto.",
-      en: "Software engineer across the full feature cycle —from idea to production— working on backend and frontend, focused on every release having real product impact.",
+      es: "Mantengo la plataforma de fidelización que usan más de 300 restaurantes en 13 países; toco frontend, backend e infraestructura.",
+      en: "I maintain the loyalty platform used by more than 300 restaurants across 13 countries; I work on frontend, backend and infrastructure.",
     },
     highlights: [
       {
-        es: "Diseño e implementación de servicios backend y APIs en una arquitectura de microservicios.",
-        en: "Design and implementation of backend services and APIs in a microservices architecture.",
+        es: "Soy dueño del catálogo, el menú digital y el POS: los diseñé, los construí y los opero. Sobre esa línea de producto el negocio hizo MRR x7, ARPU x2 y LTV/CAC 11 en 12 meses.",
+        en: "I own the catalog, the digital menu and the POS: I designed, built and operate them. On top of that product line the business hit 7x MRR, 2x ARPU and an LTV/CAC of 11 in 12 months.",
       },
       {
-        es: "Flujos de publicación escalables con S3 y CDN, alineando entornos de preview y producción.",
-        en: "Scalable publishing flows with S3 and CDN, aligning preview and production environments.",
+        es: "Servicios backend y APIs en NestJS sobre una arquitectura de microservicios, con flujos de publicación en S3 y CDN alineando preview y producción.",
+        en: "Backend services and APIs in NestJS over a microservices architecture, with publishing flows on S3 and CDN aligning preview and production.",
       },
       {
-        es: "Analítica y tracking de usuarios (PostHog) en colaboración con producto, diseño y growth.",
-        en: "User analytics and tracking (PostHog) in collaboration with product, design and growth.",
+        es: "Observabilidad con Better Stack y analítica de usuarios (PostHog), en colaboración con producto, diseño y growth.",
+        en: "Observability with Better Stack and user analytics (PostHog), in collaboration with product, design and growth.",
       },
     ],
-    stack: ["TypeScript", "Node.js", "AWS", "S3 / CDN", "PostHog"],
+    stack: ["NestJS", "Next.js", "Node.js", "TypeScript", "PostgreSQL", "AWS (Bedrock, S3, CDN)", "Better Stack", "Claude"],
     link: "https://welcomeback.io/",
   },
   {
@@ -50,17 +50,17 @@ export const experiences: Experience[] = [
     location: "Chile",
     period: { es: "sep 2024 — Presente", en: "Sep 2024 — Present" },
     description: {
-      es: "Cofundé una plataforma EdTech B2B para la preparación universitaria en Chile. Lidero producto de punta a punta: construir, iterar rápido y dejar todo listo para escalar.",
-      en: "Co-founded a B2B EdTech platform for university prep in Chile. I lead product end-to-end: build, iterate fast, and get everything ready to scale.",
+      es: "Cofundé Educari, plataforma PAES (4° básico a II medio) con microclases, ensayos simulados y tutor con IA. Está en App Store y Google Play, y la usan más de 350 estudiantes de colegios de Santiago.",
+      en: "Co-founded Educari, a PAES prep platform (4th grade to 11th grade) with micro-lessons, mock tests and an AI tutor. It's on the App Store and Google Play, used by more than 350 students from Santiago schools.",
     },
     highlights: [
       {
-        es: "IA generativa (GPT-4o) para generación de clases, asistente de estudio y explicaciones dinámicas.",
-        en: "Generative AI (GPT-4o) for lesson generation, a study assistant and dynamic explanations.",
+        es: "713 ensayos rendidos y 912 clases realizadas en la plataforma. Respaldada por AWS Startups y OpenBeauchef (U. de Chile).",
+        en: "713 mock tests taken and 912 lessons completed on the platform. Backed by AWS Startups and OpenBeauchef (U. de Chile).",
       },
       {
-        es: "Búsqueda semántica para explorar contenido en lenguaje natural (Pinecone).",
-        en: "Semantic search to explore content in natural language (Pinecone).",
+        es: "IA generativa para generación de clases, tutor de estudio y explicaciones dinámicas, con búsqueda semántica para explorar contenido en lenguaje natural (Pinecone).",
+        en: "Generative AI for lesson generation, a study tutor and dynamic explanations, with semantic search to explore content in natural language (Pinecone).",
       },
       {
         es: "3 aplicaciones en Next.js (estudiantes, admin y colegios), suscripciones con pagos (Flow.cl) y autenticación (Clerk).",
@@ -77,8 +77,8 @@ export const experiences: Experience[] = [
     location: "Santiago, Chile",
     period: { es: "ene 2025 — dic 2025", en: "Jan 2025 — Dec 2025" },
     description: {
-      es: "Diseñé y operé la plataforma de Big Data de OnNet Fibra sobre Azure, de punta a punta: ingesta, procesamiento distribuido y entregables analíticos para el monitoreo operativo de la red de fibra óptica.",
-      en: "Designed and operated OnNet Fibra's Big Data platform on Azure, end-to-end: ingestion, distributed processing and analytical deliverables for operational monitoring of the fiber-optic network.",
+      es: "Armé desde cero la plataforma de Big Data de OnNet Fibra sobre Azure y junté 8 fuentes distintas en una arquitectura medallón: ingesta, procesamiento distribuido y entregables analíticos para el monitoreo operativo de la red de fibra óptica.",
+      en: "Built OnNet Fibra's Big Data platform on Azure from scratch, bringing 8 different sources into a medallion architecture: ingestion, distributed processing and analytical deliverables for operational monitoring of the fiber-optic network.",
     },
     highlights: [
       {
@@ -113,15 +113,15 @@ export const experiences: Experience[] = [
     },
     highlights: [
       {
-        es: "Lideré un proyecto para detectar errores de facturación, comparando pagos realizados contra facturas emitidas y mejorando el control de pagos.",
-        en: "Led a project to detect billing errors, comparing payments made against issued invoices and improving payment control.",
+        es: "Lideré un módulo que cruza los pagos recibidos contra las facturas emitidas, sobre un revenue de USD 10.000; detecté diferencias que nadie veía.",
+        en: "Led a module that reconciles payments received against issued invoices, over USD 10,000 in revenue; it surfaced discrepancies nobody was catching.",
       },
       {
         es: "Apoyé mejoras en el sistema logístico, asignando pedidos según la comuna del cliente.",
         en: "Supported improvements to the logistics system, assigning orders based on the customer's district.",
       },
     ],
-    stack: ["Next.js", "Node.js", "AWS", "PostgreSQL"],
+    stack: ["Python", "PostgreSQL", "REST APIs"],
   },
   {
     id: 6,
@@ -130,25 +130,25 @@ export const experiences: Experience[] = [
     location: "Santiago, Chile",
     period: { es: "jun 2023 — may 2024", en: "Jun 2023 — May 2024" },
     description: {
-      es: "Mantención e integración del CRM usado por equipos de call center, optimizando la gestión y visualización de datos de clientes.",
-      en: "Maintenance and integration of the CRM used by call-center teams, optimizing customer data management and visualization.",
+      es: "Me hice cargo de un CRM en PHP con CodeIgniter 3 (MVC) que usaban todos los días 500 ejecutivos de 5 empresas de call center.",
+      en: "I took ownership of a PHP CRM built on CodeIgniter 3 (MVC), used every day by 500 agents across 5 call-center companies.",
     },
     highlights: [
       {
-        es: "Mejoras en la interfaz y en la estructura de datos para facilitar la toma de decisiones comerciales.",
-        en: "Improvements to the interface and data structure to support commercial decision-making.",
+        es: "Rehice los datos y las vistas de cliente para que encontraran la información sin esperas.",
+        en: "Rebuilt the data model and customer views so agents could find information without waiting.",
       },
       {
         es: "Desarrollo de funcionalidades end-to-end sobre el CRM (front-end y datos).",
         en: "End-to-end feature development on the CRM (front-end and data).",
       },
     ],
-    stack: ["CodeIgniter", "PHP", "JavaScript", "PostgreSQL"],
+    stack: ["PHP", "CodeIgniter 3", "PostgreSQL", "JavaScript", "HTML", "CSS"],
   },
   {
     id: 4,
-    role: "Software Engineer · Product Builder / Founder",
-    company: "Freelance / Independiente",
+    role: "Desarrollador Full Stack",
+    company: "Freelance / WebVitae",
     location: "Chile",
     period: { es: "mar 2020 — dic 2024", en: "Mar 2020 — Dec 2024" },
     description: {
@@ -157,12 +157,12 @@ export const experiences: Experience[] = [
     },
     highlights: [
       {
-        es: "WebVitae: cofundé un estudio de sitios web, branding y soluciones digitales, entregando proyectos end-to-end.",
-        en: "WebVitae: co-founded a studio for websites, branding and digital solutions, delivering projects end-to-end.",
+        es: "Cofundé WebVitae: software a medida, inventarios y sistemas administrativos para decenas de clientes.",
+        en: "Co-founded WebVitae: custom software, inventory systems and admin platforms for dozens of clients.",
       },
       {
-        es: "AmagiBitcoin: plataforma de monitoreo de inversión en BTC (Django, monorepo). MVP en ~6 meses y más de 2 años de evolución y operación.",
-        en: "AmagiBitcoin: a BTC investment monitoring platform (Django, monorepo). MVP in ~6 months and over 2 years of evolution and operation.",
+        es: "AmagiBitcoin: monitoreo de inversión en BTC (Django), MVP en 6 meses y +2 años en operación.",
+        en: "AmagiBitcoin: BTC investment monitoring (Django), MVP in 6 months and 2+ years in operation.",
       },
     ],
     stack: ["Django", "Python", "React", "JavaScript"],

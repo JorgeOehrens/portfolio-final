@@ -169,8 +169,8 @@ export const projects: Project[] = [
     featured: true,
     title: "Educari",
     description: {
-      es: "Plataforma educativa con IA para estudiantes chilenos: microclases interactivas, simulación de ensayos y feedback al instante, desde 5° básico hasta II medio con preparación PAES.",
-      en: "AI-powered education platform for Chilean students: interactive micro-lessons, mock-test simulation and instant feedback, from 5th grade to 12th grade with PAES (college-entrance) prep.",
+      es: "Plataforma PAES con IA para estudiantes chilenos (4° básico a II medio): microclases interactivas, ensayos simulados y tutor con IA. En App Store y Google Play, con más de 350 estudiantes, 713 ensayos rendidos y 912 clases realizadas. Respaldada por AWS Startups y OpenBeauchef (U. de Chile).",
+      en: "AI-powered PAES prep platform for Chilean students (4th to 11th grade): interactive micro-lessons, mock tests and an AI tutor. On the App Store and Google Play, with 350+ students, 713 mock tests taken and 912 lessons completed. Backed by AWS Startups and OpenBeauchef (U. de Chile).",
     },
     category: 'app',
     categories: ['web', 'app'],
@@ -180,15 +180,16 @@ export const projects: Project[] = [
   },
   {
     id: 13,
+    featured: true,
     title: "AgroJob",
     description: {
-      es: "Portal de empleos del sector agrícola en Chile: ofertas laborales con buscador, filtros por ubicación y mapa, conectando trabajadores con empresas del agro.",
-      en: "Agricultural job board for Chile: listings with search, location filters and a map, connecting workers with agribusiness companies.",
+      es: "Plataforma de empleo y comunidad para el agro, construida de punta a punta. Web en Next.js 14 + Supabase: ofertas, feed social, perfiles de trabajador y empresa, matching por compatibilidad con IA, mapa y blog escrito por un agente. App móvil en React Native (Expo) en iOS y Android: postulaciones, optimizador de CV y entrevistas de práctica por voz. Y un servicio en Ruby on Rails que arma un boletín diario en audio desde 4 fuentes en paralelo, cubierto con 90 specs en RSpec.",
+      en: "An employment and community platform for agriculture, built end-to-end. Web app in Next.js 14 + Supabase: job listings, social feed, worker and company profiles, AI compatibility matching, a map and a blog written by an agent. Mobile app in React Native (Expo) on iOS and Android: applications, a CV optimizer and voice interview practice. Plus a Ruby on Rails service that assembles a daily audio briefing from 4 parallel sources, covered by 90 RSpec specs.",
     },
     category: 'app',
     categories: ['web', 'app'],
     image: "/projects/agrojob.png",
-    technologies: ['Next.js', 'React', 'TypeScript', 'Node.js'],
+    technologies: ['Next.js', 'Supabase', 'React Native (Expo)', 'Ruby on Rails', 'TypeScript', 'OpenAI', 'ElevenLabs'],
     link: 'https://agrojob.cl/'
   },
   {

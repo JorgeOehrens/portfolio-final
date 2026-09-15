@@ -11,9 +11,9 @@ const bricolage = Bricolage_Grotesque({ subsets: ['latin'], variable: '--font-di
 const geistMono = localFont({ src: './fonts/GeistMonoVF.woff', variable: '--font-mono' })
 
 const siteUrl = 'https://jorge5.dev'
-const title = 'Jorge Oehrens · Software Engineer & Product Engineer'
+const title = 'Jorge Oehrens · Software Engineer, Producto e Infraestructura'
 const description =
-  'Jorge Oehrens — Software Engineer y Product Engineer. Construyo productos digitales end-to-end (AI, web y data). Software Engineer en WelcomeBack, cofundador de Educari y AgroJob.'
+  'Jorge Oehrens — Ingeniero de software: frontend, backend e infraestructura. En Welcome Back soy dueño del catálogo, el menú digital y el POS de una plataforma que usan más de 300 restaurantes en 13 países. Cofundador de Educari y creador de AgroJob.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         url: '/images/og-jorge.png',
         width: 200,
         height: 200,
-        alt: 'Jorge Oehrens · Software Engineer & Product Engineer',
+        alt: 'Jorge Oehrens · Software Engineer, Producto e Infraestructura',
       },
     ],
   },

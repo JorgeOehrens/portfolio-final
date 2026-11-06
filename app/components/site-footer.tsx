@@ -7,7 +7,7 @@ import posthog from 'posthog-js'
 const SOCIALS = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jorge-oehrens/', platform: 'linkedin' },
   { label: 'GitHub', href: 'https://github.com/JorgeOehrens', platform: 'github' },
-  { label: 'Portfolio', href: 'https://jorgeoehrens.com', platform: 'portfolio' },
+  { label: 'Portfolio', href: 'https://jorge5.dev', platform: 'portfolio' },
 ]
 
 const CONTACTS = [

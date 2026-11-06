@@ -23,8 +23,8 @@ export const experiences: Experience[] = [
     location: "Santiago, Chile",
     period: { es: "dic 2025 — Presente", en: "Dec 2025 — Present" },
     description: {
-      es: "Mantengo la plataforma de fidelización que usan más de 300 restaurantes en 13 países; toco frontend, backend e infraestructura.",
-      en: "I maintain the loyalty platform used by more than 300 restaurants across 13 countries; I work on frontend, backend and infrastructure.",
+      es: "Mantengo la plataforma de fidelización que usan más de 300 restaurantes en 13 países y por la que ya se han transado más de $350 millones de pesos chilenos; toco frontend, backend e infraestructura.",
+      en: "I maintain the loyalty platform used by more than 300 restaurants across 13 countries, which has already processed more than CLP 350 million in transactions; I work on frontend, backend and infrastructure.",
     },
     highlights: [
       {
@@ -50,8 +50,8 @@ export const experiences: Experience[] = [
     location: "Chile",
     period: { es: "sep 2024 — Presente", en: "Sep 2024 — Present" },
     description: {
-      es: "Cofundé Educari, plataforma PAES (4° básico a II medio) con microclases, ensayos simulados y tutor con IA. Está en App Store y Google Play, y la usan más de 350 estudiantes de colegios de Santiago.",
-      en: "Co-founded Educari, a PAES prep platform (4th grade to 11th grade) with micro-lessons, mock tests and an AI tutor. It's on the App Store and Google Play, used by more than 350 students from Santiago schools.",
+      es: "Cofundé Educari, plataforma PAES (4° básico a II medio) con microclases, ensayos simulados y tutor con IA. Está en App Store y Google Play, y ya tiene más de 900 usuarios.",
+      en: "Co-founded Educari, a PAES prep platform (4th grade to 11th grade) with micro-lessons, mock tests and an AI tutor. It's on the App Store and Google Play, and it already has more than 900 users.",
     },
     highlights: [
       {

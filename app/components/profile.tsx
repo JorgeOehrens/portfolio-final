@@ -54,17 +54,17 @@ export default function Profile() {
         <h1 className="font-display text-5xl font-semibold leading-[1.02] tracking-[-0.03em] text-white sm:text-7xl lg:text-8xl">
           Jorge Oehrens.
           <br />
-          <span className="text-white/55">Software Engineer · Product &amp; Infrastructure.</span>
+          <span className="mt-3 block max-w-2xl text-3xl leading-[1.08] text-white/60 sm:text-5xl lg:text-6xl">{t.heroTagline}</span>
         </h1>
 
         <p className="mt-6 max-w-xl text-balance text-base leading-relaxed text-white/70 sm:text-lg">
-          {t.profileBio}
+          {t.heroPitch}
         </p>
 
         <div className="mt-8 flex flex-wrap gap-3">
           <a
-            href="#projects"
-            onClick={() => posthog.capture('nav_section_clicked', { section: 'projects', location: 'hero' })}
+            href="#products"
+            onClick={() => posthog.capture('nav_section_clicked', { section: 'products', location: 'hero' })}
             className="inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 text-base font-semibold text-[hsl(228_28%_8%)] transition-transform hover:-translate-y-0.5 active:scale-[0.98]"
           >
             {t.viewMyWork}

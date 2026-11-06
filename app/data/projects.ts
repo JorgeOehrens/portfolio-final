@@ -165,34 +165,6 @@ export const projects: Project[] = [
     technologies: ['PHP', 'Wordpress' , 'Cpanel' ]
   },
   {
-    id: 12,
-    featured: true,
-    title: "Educari",
-    description: {
-      es: "Plataforma PAES con IA para estudiantes chilenos (4° básico a II medio): microclases interactivas, ensayos simulados y tutor con IA. En App Store y Google Play, con más de 350 estudiantes, 713 ensayos rendidos y 912 clases realizadas. Respaldada por AWS Startups y OpenBeauchef (U. de Chile).",
-      en: "AI-powered PAES prep platform for Chilean students (4th to 11th grade): interactive micro-lessons, mock tests and an AI tutor. On the App Store and Google Play, with 350+ students, 713 mock tests taken and 912 lessons completed. Backed by AWS Startups and OpenBeauchef (U. de Chile).",
-    },
-    category: 'app',
-    categories: ['web', 'app'],
-    image: "/projects/educari.png",
-    technologies: ['Next.js', 'React', 'TypeScript', 'AI', 'AWS'],
-    link: 'https://educari.cl/'
-  },
-  {
-    id: 13,
-    featured: true,
-    title: "AgroJob",
-    description: {
-      es: "Plataforma de empleo y comunidad para el agro, construida de punta a punta. Web en Next.js 14 + Supabase: ofertas, feed social, perfiles de trabajador y empresa, matching por compatibilidad con IA, mapa y blog escrito por un agente. App móvil en React Native (Expo) en iOS y Android: postulaciones, optimizador de CV y entrevistas de práctica por voz. Y un servicio en Ruby on Rails que arma un boletín diario en audio desde 4 fuentes en paralelo, cubierto con 90 specs en RSpec.",
-      en: "An employment and community platform for agriculture, built end-to-end. Web app in Next.js 14 + Supabase: job listings, social feed, worker and company profiles, AI compatibility matching, a map and a blog written by an agent. Mobile app in React Native (Expo) on iOS and Android: applications, a CV optimizer and voice interview practice. Plus a Ruby on Rails service that assembles a daily audio briefing from 4 parallel sources, covered by 90 RSpec specs.",
-    },
-    category: 'app',
-    categories: ['web', 'app'],
-    image: "/projects/agrojob.png",
-    technologies: ['Next.js', 'Supabase', 'React Native (Expo)', 'Ruby on Rails', 'TypeScript', 'OpenAI', 'ElevenLabs'],
-    link: 'https://agrojob.cl/'
-  },
-  {
     id: 14,
     title: "PolloExperto",
     description: {

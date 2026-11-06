@@ -8,9 +8,9 @@ export default function Stats() {
   const t = translations[language]
 
   const stats = [
-    { value: '113', suffix: '+', label: t.satisfiedPartners },
-    { value: '6', suffix: '+', label: t.certificates },
-    { value: '5', suffix: '+', label: t.hackathonsTitle },
+    { value: '300', suffix: '+', label: t.statRestaurants },
+    { value: '$350M', suffix: '+', label: t.statTransacted },
+    { value: '900', suffix: '+', label: t.statEducari },
   ]
 
   return (

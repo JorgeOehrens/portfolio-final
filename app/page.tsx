@@ -8,6 +8,7 @@ import SiteNav from './components/site-nav'
 import Stats from './components/stats'
 import Profile from './components/profile'
 import ProjectGrid from './components/project-grid'
+import Ventures from './components/ventures'
 import HackathonGrid from './components/hackathon-grid'
 import WorkProcess from './components/work-process'
 import CertificatesViewer from './components/certificates-viewer'
@@ -66,6 +67,10 @@ export default function Portfolio() {
       <Profile />
 
       <main className="mx-auto max-w-7xl space-y-28 px-4 pb-28 pt-24 sm:space-y-36 sm:px-6 sm:pt-32">
+        <motion.section id="products" className="scroll-mt-28" {...reveal}>
+          <Ventures />
+        </motion.section>
+
         <motion.section id="projects" className="scroll-mt-28" {...reveal}>
           <ProjectGrid />
         </motion.section>

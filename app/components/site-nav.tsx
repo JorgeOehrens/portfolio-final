@@ -6,6 +6,7 @@ import { useLanguage } from '../contexts/LanguageContext'
 import { translations } from '../utils/translations'
 
 const SECTIONS = [
+  { id: 'products', key: 'navProducts' },
   { id: 'projects', key: 'navProjects' },
   { id: 'experience', key: 'navExperience' },
   { id: 'hackathons', key: 'navHackathons' },
